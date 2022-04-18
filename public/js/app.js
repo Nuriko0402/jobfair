@@ -6593,19 +6593,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       step: 1,
-      formReg: {
-        name: '',
-        adress: '',
+      company: {
+        title: '',
+        address: '',
         bin: '',
         iik: '',
         kbe: '',
         email: '',
-        contact: '',
-        password: ''
+        phone: '',
+        password: '',
+        password_confirm: ''
       }
     };
   },
@@ -6615,6 +6617,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     backStep: function backStep() {
       this.step--;
+    },
+    signup: function signup() {
+      axios.post("/signup", {
+        company: this.company
+      }).then(function (response) {}).then(function (error) {});
     }
   }
 });
@@ -32371,7 +32378,7 @@ var render = function () {
           },
           [
             _c("h4", { staticClass: "oswald" }, [
-              _vm._v(_vm._s(company.title) + "\n                "),
+              _vm._v(_vm._s(company.title) + "\r\n                "),
               _c(
                 "span",
                 {
@@ -33935,13 +33942,13 @@ var render = function () {
                 _c("p", { staticClass: "text-justify" }, [
                   _c("b", [_vm._v("Условия:")]),
                   _c("br"),
-                  _vm._v("\n            " + _vm._s(company.text)),
+                  _vm._v("\r\n            " + _vm._s(company.text)),
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-justify" }, [
                   _c("b", [_vm._v("Требования:")]),
                   _c("br"),
-                  _vm._v("\n            " + _vm._s(company.requirement)),
+                  _vm._v("\r\n            " + _vm._s(company.requirement)),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row pr" }, [
@@ -33972,7 +33979,7 @@ var render = function () {
                         }),
                       ]
                     ),
-                    _vm._v(_vm._s(company.salary) + "\n                "),
+                    _vm._v(_vm._s(company.salary) + "\r\n                "),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3 paragraph" }, [
@@ -33996,7 +34003,7 @@ var render = function () {
                         }),
                       ]
                     ),
-                    _vm._v(_vm._s(company.practice) + "\n                "),
+                    _vm._v(_vm._s(company.practice) + "\r\n                "),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3 paragraph" }, [
@@ -34026,7 +34033,7 @@ var render = function () {
                         }),
                       ]
                     ),
-                    _vm._v(_vm._s(company.srok) + "\n                "),
+                    _vm._v(_vm._s(company.srok) + "\r\n                "),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -34491,21 +34498,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.name,
-                                          expression: "name",
+                                          value: _vm.company.name,
+                                          expression: "company.name",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "Название компании",
                                       },
-                                      domProps: { value: _vm.name },
+                                      domProps: { value: _vm.company.name },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.name = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "name",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34515,21 +34526,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.adress,
-                                          expression: "adress",
+                                          value: _vm.company.address,
+                                          expression: "company.address",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "Адрес",
                                       },
-                                      domProps: { value: _vm.adress },
+                                      domProps: { value: _vm.company.address },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.adress = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "address",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34539,21 +34554,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.bin,
-                                          expression: "bin",
+                                          value: _vm.company.bin,
+                                          expression: "company.bin",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "БИН / ИИН",
                                       },
-                                      domProps: { value: _vm.bin },
+                                      domProps: { value: _vm.company.bin },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.bin = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "bin",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34563,21 +34582,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.iik,
-                                          expression: "iik",
+                                          value: _vm.company.iik,
+                                          expression: "company.iik",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "ИИК",
                                       },
-                                      domProps: { value: _vm.iik },
+                                      domProps: { value: _vm.company.iik },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.iik = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "iik",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34587,21 +34610,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.kbe,
-                                          expression: "kbe",
+                                          value: _vm.company.kbe,
+                                          expression: "company.kbe",
                                         },
                                       ],
                                       attrs: {
                                         type: "number",
                                         placeholder: "КБЕ",
                                       },
-                                      domProps: { value: _vm.kbe },
+                                      domProps: { value: _vm.company.kbe },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.kbe = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "kbe",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34636,21 +34663,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.contact,
-                                          expression: "contact",
+                                          value: _vm.company.phone,
+                                          expression: "company.phone",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
-                                        placeholder: "Контакты",
+                                        placeholder: "Телефон",
                                       },
-                                      domProps: { value: _vm.contact },
+                                      domProps: { value: _vm.company.phone },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.contact = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "phone",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34660,21 +34691,25 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.email,
-                                          expression: "email",
+                                          value: _vm.company.email,
+                                          expression: "company.email",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "Email",
                                       },
-                                      domProps: { value: _vm.email },
+                                      domProps: { value: _vm.company.email },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.email = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "email",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34684,21 +34719,56 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.password,
-                                          expression: "password",
+                                          value: _vm.company.password,
+                                          expression: "company.password",
                                         },
                                       ],
                                       attrs: {
-                                        type: "text",
+                                        type: "password",
                                         placeholder: "Придумайте пароль",
                                       },
-                                      domProps: { value: _vm.password },
+                                      domProps: { value: _vm.company.password },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
-                                          _vm.password = $event.target.value
+                                          _vm.$set(
+                                            _vm.company,
+                                            "password",
+                                            $event.target.value
+                                          )
+                                        },
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.company.password_confirm,
+                                          expression:
+                                            "company.password_confirm",
+                                        },
+                                      ],
+                                      attrs: {
+                                        type: "password",
+                                        placeholder: "Повторите пароль",
+                                      },
+                                      domProps: {
+                                        value: _vm.company.password_confirm,
+                                      },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.company,
+                                            "password_confirm",
+                                            $event.target.value
+                                          )
                                         },
                                       },
                                     }),
@@ -34717,6 +34787,15 @@ var render = function () {
                                       {
                                         staticClass: "btn but_or w-100",
                                         attrs: { type: "submit" },
+                                        on: {
+                                          click: function ($event) {
+                                            $event.preventDefault()
+                                            return _vm.signup.apply(
+                                              null,
+                                              arguments
+                                            )
+                                          },
+                                        },
                                       },
                                       [_vm._v("Зарегистрироваться")]
                                     ),

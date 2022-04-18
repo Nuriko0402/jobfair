@@ -31,19 +31,20 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                             <div class="step" v-show="step === 1">
-                                            <input v-model="name" type="text" placeholder="Название компании">
-                                            <input v-model="adress" type="text" placeholder="Адрес">
-                                            <input v-model="bin" type="text" placeholder="БИН / ИИН">
-                                            <input v-model="iik" type="text" placeholder="ИИК">
-                                            <input v-model="kbe" type="number" placeholder="КБЕ">
+                                            <input v-model="company.name" type="text" placeholder="Название компании">
+                                            <input v-model="company.address" type="text" placeholder="Адрес">
+                                            <input v-model="company.bin" type="text" placeholder="БИН / ИИН">
+                                            <input v-model="company.iik" type="text" placeholder="ИИК">
+                                            <input v-model="company.kbe" type="number" placeholder="КБЕ">
                                             <button @click="nextStep" class="btn but_or w-100">Далее</button>
                                         </div>
                                         <div class="step" v-show="step === 2">
-                                            <input v-model="contact" type="text" placeholder="Контакты">
-                                            <input v-model="email" type="text" placeholder="Email">
-                                            <input v-model="password" type="text" placeholder="Придумайте пароль">
+                                            <input v-model="company.phone" type="text" placeholder="Телефон">
+                                            <input v-model="company.email" type="text" placeholder="Email">
+                                            <input v-model="company.password" type="password" placeholder="Придумайте пароль">
+                                            <input v-model="company.password_confirm" type="password" placeholder="Повторите пароль">
                                             <button @click="backStep" class="btn w-100">Назад</button>
-                                            <button type="submit" class="btn but_or w-100">Зарегистрироваться</button>
+                                            <button @click.prevent="signup" type="submit" class="btn but_or w-100">Зарегистрироваться</button>
                                         </div>
                                     </div>    
                                 </div>
@@ -106,24 +107,35 @@ export default {
   data(){
       return {
           step: 1,
-          formReg: {
-              name: '',
-              adress: '',
+          company: {
+              title: '',
+              address: '',
               bin: '', 
               iik: '',
               kbe: '',
               email: '',
-              contact: '',
-              password: ''
+              phone: '',
+              password: '',
+              password_confirm: '',
           }
       }
   },
     methods:{
+
         nextStep(){
             this.step++;
         },
         backStep() {
             this.step --;
+        },
+        signup() {
+            axios.post("/signup", {
+                company: this.company
+            }).then(response => {
+
+            }).then(error => {
+
+            })
         }
     }
 }
