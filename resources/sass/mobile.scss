@@ -1,0 +1,130 @@
+/*mobile 992px*/
+/*меню*/
+@media only screen and (max-width: 991px) {
+    .desk_none {
+        display: block;
+    }
+    .mob_none {
+        display: none;
+    }
+    .navbar {
+        width: 100%;
+        flex-wrap: inherit;
+    }
+    .navbar-toggler {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 2%;
+        border: none;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    .navbar-collapse {
+        background-color: bisque;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+        background-color: $white;
+        text-align: center;
+    }
+    .width_logo {
+        z-index: 999;
+        position: absolute;
+        margin-left: 30%;
+        top: 20%;
+    }
+    .main_enter span {
+        display: none;
+    }
+    .main_enter {
+        background-color: $white;
+    }
+    .main_enter svg {
+        color: #737373;
+        display: block;
+        
+    }
+    /*табы в главном*/
+    .nav {
+        margin-left: 4%;
+    }
+    .nav .nav-item {
+        width: 48.5%;
+    }
+    /*фильтр*/
+    .mob_filter {
+        border-bottom: 1px solid #E1E1E1;
+        border-top: 1px solid #E1E1E1;
+        padding: 4% 0;
+        margin-bottom: -10%;
+    }
+    .company_filter_mob, .company_search_mob {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        padding: 5% 10%;
+        background-color: $white;
+        box-shadow: 0 0 2px 0px gray;
+    }
+    .company_filter_mob div .btn {
+        margin: 1%;
+    }
+    .showing_search  {
+        text-align: right;
+    }
+    .main_filter select {
+        width: 100%;
+    }
+    .border-left {
+        border: none;
+    }
+    .close_btn {
+        float: right;
+    }
+    .btn_or {
+        margin: 0 5.5%;
+    }
+    /*company list*/
+    .company_list {
+        margin-bottom: 10%;
+    
+    }
+    /*student account*/
+    .StudentCategoryEdit {
+        position: absolute;
+        z-index: 999;
+        top: 0;
+    }
+    .StudentCategoryEdit input, .StudentCategoryEdit textarea, .StudentCategoryEdit select {
+        width: 100%;
+    }
+    .box .tab-content .tab-pane input {
+        padding: 3%;
+        font-size: .8rem;
+    }
+    .response_list tr th, .response_list tr td {
+        width: 100%;
+        border: 1px solid $white;
+    }
+    .response_list tr th, .response_list tr td {
+        display: block;
+        width: 100%;
+    }
+    .modal-body {
+        width: 98%;
+        box-shadow: 0 0 4px 0 grey;
+        left: 0;
+        position: absolute;
+        z-index: 9999;
+        background: $white;
+        padding: 2%;
+        margin: 1%;
+    }
+
+}
