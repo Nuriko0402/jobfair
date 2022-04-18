@@ -320,3 +320,16 @@ b {
 .form-group {
     margin: 1% 0;
 }
+//
+.vacancyedit {
+    position: absolute;
+    z-index: 999;
+    width: 50%;
+    top: 25%;
+    left: 25%;
+    background: $white;
+    
+}
+.close_btn {
+    float: right;
+}

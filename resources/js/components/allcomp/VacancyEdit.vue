@@ -1,9 +1,8 @@
 <template>
-    <!--modal-->
-        <div class="modal-body" v-show="isShowing">
-            <h4 class="oswald">Вакансия
-                <span @click="modalShow = !modalShow" class="close_btn">x</span>
-            </h4>
+        <div class="monserat vacancyedit">
+            <h5 class="oswald">Вакансия
+                <span @click="closeModal" class="close_btn">x</span>
+            </h5>
             <input type="text" placeholder="Название" class="w-100"><br />
             <select name="" id="" class="w-100">
                 <option value="">Срок</option>
@@ -20,10 +19,11 @@
 
 <script> 
 export default {
-    data() {
-        return {
-            modalShow: false,
+    methods: {
+        closeModal(){
+            this.$emit('closeMe')
         }
-    },
+    }
+
 }
 </script>

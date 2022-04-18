@@ -6148,12 +6148,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      modalShow: false
-    };
+  methods: {
+    closeModal: function closeModal() {
+      this.$emit('closeMe');
+    }
   }
 });
 
@@ -6444,6 +6443,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _allcomp_CompanyInformation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../allcomp/CompanyInformation.vue */ "./resources/js/components/allcomp/CompanyInformation.vue");
 /* harmony import */ var _allcomp_CategoryVacancy_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../allcomp/CategoryVacancy.vue */ "./resources/js/components/allcomp/CategoryVacancy.vue");
 /* harmony import */ var _allcomp_AllVacancy_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../allcomp/AllVacancy.vue */ "./resources/js/components/allcomp/AllVacancy.vue");
+/* harmony import */ var _allcomp_VacancyEdit_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../allcomp/VacancyEdit.vue */ "./resources/js/components/allcomp/VacancyEdit.vue");
 //
 //
 //
@@ -6461,6 +6461,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -6470,7 +6472,8 @@ __webpack_require__.r(__webpack_exports__);
     CompanyInformation: _allcomp_CompanyInformation_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     MainContainer: _allcomp_MainContainer_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CategoryVacancy: _allcomp_CategoryVacancy_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    AllVacancy: _allcomp_AllVacancy_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    AllVacancy: _allcomp_AllVacancy_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    VacancyEdit: _allcomp_VacancyEdit_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -33731,67 +33734,44 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.isShowing,
-          expression: "isShowing",
-        },
-      ],
-      staticClass: "modal-body",
-    },
-    [
-      _c("h4", { staticClass: "oswald" }, [
-        _vm._v("Вакансия\n            "),
-        _c(
-          "span",
-          {
-            staticClass: "close_btn",
-            on: {
-              click: function ($event) {
-                _vm.modalShow = !_vm.modalShow
-              },
-            },
-          },
-          [_vm._v("x")]
-        ),
+  return _c("div", { staticClass: "monserat vacancyedit" }, [
+    _c("h5", { staticClass: "oswald" }, [
+      _vm._v("Вакансия\n        "),
+      _c("span", { staticClass: "close_btn", on: { click: _vm.closeModal } }, [
+        _vm._v("x"),
       ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "w-100",
-        attrs: { type: "text", placeholder: "Название" },
-      }),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(0),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "w-100",
-        attrs: { type: "text", placeholder: "Зарплата" },
-      }),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(1),
-      _c("br"),
-      _vm._v(" "),
-      _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-        _vm._v("Условия"),
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-        _vm._v("Требования"),
-      ]),
-      _c("br"),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn but_or w-100" }, [_vm._v("Сохранить")]),
-    ]
-  )
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "w-100",
+      attrs: { type: "text", placeholder: "Название" },
+    }),
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(0),
+    _c("br"),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "w-100",
+      attrs: { type: "text", placeholder: "Зарплата" },
+    }),
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(1),
+    _c("br"),
+    _vm._v(" "),
+    _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
+      _vm._v("Условия"),
+    ]),
+    _c("br"),
+    _vm._v(" "),
+    _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
+      _vm._v("Требования"),
+    ]),
+    _c("br"),
+    _vm._v(" "),
+    _c("button", { staticClass: "btn but_or w-100" }, [_vm._v("Сохранить")]),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -34319,18 +34299,10 @@ var render = function () {
       _c(
         "button",
         {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.isShowing,
-              expression: "isShowing",
-            },
-          ],
           staticClass: "but_or btn",
           on: {
-            closeMe: function ($event) {
-              _vm.isShowing = false
+            click: function ($event) {
+              _vm.isShowing = !_vm.isShowing
             },
           },
         },
@@ -34364,6 +34336,22 @@ var render = function () {
           _vm._v("\n    Добавить вакансию"),
         ]
       ),
+      _vm._v(" "),
+      _c("vacancy-edit", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isShowing,
+            expression: "isShowing",
+          },
+        ],
+        on: {
+          closeMe: function ($event) {
+            _vm.isShowing = false
+          },
+        },
+      }),
       _vm._v(" "),
       _c("br"),
       _c("br"),
