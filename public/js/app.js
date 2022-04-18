@@ -5297,99 +5297,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/allcomp/AllVacancy.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    data: {
-      type: Array,
-      "default": function _default() {
-        return [];
-      }
-    }
-  },
-  data: function data() {
-    return {
-      modalShow: false,
-      search: '',
-      companies: [{
-        id: 1,
-        title: 'Строитель - BI GROUP',
-        text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        salary: '250 000 тг',
-        practice: '1 - 3 года',
-        srok: '6 месяцев',
-        vacancyName: 'Строитель',
-        tip: 'Практика',
-        logo: '../assets/images/bi.png'
-      }]
-    };
-  } // computed:{
-  //     filteredCompnylist: function() {
-  //         return this.data.filter((company) => {
-  //             return company.title.match(this.search);
-  //         })
-  //     }
-  // }
-
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/ainur/jobfair/resources/js/components/allcomp/AllVacancy.vue: Unexpected token, expected \",\" (39:27)\n\n\u001b[0m \u001b[90m 37 |\u001b[39m         data\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 38 |\u001b[39m     \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 39 |\u001b[39m         \u001b[33mVacancyEdit\u001b[39m        type\u001b[33m:\u001b[39m \u001b[33mArray\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 40 |\u001b[39m             \u001b[36mdefault\u001b[39m\u001b[33m:\u001b[39m () \u001b[33m=>\u001b[39m []\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 41 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 42 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.unexpected (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3373:16)\n    at Parser.expect (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:4002:28)\n    at Parser.parseObjectLike (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13486:14)\n    at Parser.parseExprAtom (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12284:61)\n    at Parser.parseExprOps (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12291:23)\n    at Parser.parseMaybeConditional (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12261:23)\n    at Parser.parseMaybeAssign (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12214:21)\n    at /home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:12172:39\n    at Parser.allowInAnd (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:14242:12)");
 
 /***/ }),
 
@@ -32058,97 +31968,26 @@ var render = function () {
         )
       }),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "div",
+      _c("vacancy-edit", {
+        directives: [
           {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.modalShow,
-                expression: "modalShow",
-              },
-            ],
-            staticClass: "modal-body",
+            name: "show",
+            rawName: "v-show",
+            value: _vm.modalShow,
+            expression: "modalShow",
           },
-          [
-            _c("h4", { staticClass: "oswald" }, [
-              _vm._v("Вакансия\n            "),
-              _c(
-                "span",
-                {
-                  staticClass: "close_btn",
-                  on: {
-                    click: function ($event) {
-                      _vm.modalShow = !_vm.modalShow
-                    },
-                  },
-                },
-                [_vm._v("x")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "w-100",
-              attrs: { type: "text", placeholder: "Название" },
-            }),
-            _c("br"),
-            _vm._v(" "),
-            _vm._m(0),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "w-100",
-              attrs: { type: "text", placeholder: "Зарплата" },
-            }),
-            _c("br"),
-            _vm._v(" "),
-            _vm._m(1),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "textarea",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [_vm._v("Условия")]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "textarea",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [_vm._v("Требования")]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn but_or w-100" }, [
-              _vm._v("Сохранить"),
-            ]),
-          ]
-        ),
-      ]),
+        ],
+        on: {
+          closeMe: function ($event) {
+            _vm.modalShow = false
+          },
+        },
+      }),
     ],
     2
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("Срок")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("Выберите тип")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

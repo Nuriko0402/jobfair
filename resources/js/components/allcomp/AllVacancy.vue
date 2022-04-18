@@ -23,37 +23,23 @@
                     </div><br/>
                     <button class="but_or btn" @click="modalShow = !modalShow">Редактировать</button>
                 </div>
+                <vacancy-edit @closeMe="modalShow=false" v-show="modalShow"/>
 
-
-
-
-                <div>        
-        <div class="modal-body" v-show="modalShow">
-            <h4 class="oswald">Вакансия
-                <span @click="modalShow = !modalShow" class="close_btn">x</span>
-            </h4>
-            <input type="text" placeholder="Название" class="w-100"><br />
-            <select name="" id="" class="w-100">
-                <option value="">Срок</option>
-            </select><br />
-            <input type="text" placeholder="Зарплата" class="w-100"><br />
-            <select name="" id="" class="w-100">
-                <option value="">Выберите тип</option>    
-            </select><br />
-            <textarea name="" id="" class="w-100">Условия</textarea><br />
-            <textarea name="" id="" class="w-100">Требования</textarea><br />
-            <button class="btn but_or w-100">Сохранить</button> 
-        </div> </div>
     </div>
     <!--modal-->
  
 </template>
 
 <script>
+import VacancyEdit from './VacancyEdit.vue'
 export default {
+    components: {
+        VacancyEdit
+    },
     props: {
         data: {
-            type: Array,
+    
+        VacancyEdit        type: Array,
             default: () => [],
         }
     },
