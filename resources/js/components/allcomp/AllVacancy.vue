@@ -38,8 +38,7 @@ export default {
     },
     props: {
         data: {
-    
-        VacancyEdit        type: Array,
+            type: Array,
             default: () => [],
         }
     },
