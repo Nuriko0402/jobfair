@@ -5304,7 +5304,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _VacancyEdit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VacancyEdit.vue */ "./resources/js/components/allcomp/VacancyEdit.vue");
 //
 //
 //
@@ -5333,17 +5332,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    VacancyEdit: _VacancyEdit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   props: {
     data: {
       type: Array,
@@ -5359,10 +5348,12 @@ __webpack_require__.r(__webpack_exports__);
       companies: [{
         id: 1,
         title: 'Строитель - BI GROUP',
-        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         salary: '250 000 тг',
         practice: '1 - 3 года',
         srok: '6 месяцев',
+        vacancyName: 'Строитель',
         tip: 'Практика',
         logo: '../assets/images/bi.png'
       }]
@@ -31980,7 +31971,7 @@ var render = function () {
     "div",
     { staticClass: "row" },
     [
-      _c("h4", { staticClass: "oswald" }, [_vm._v("Вакансии")]),
+      _c("h4", { staticClass: "oswald" }, [_vm._v("Другие вакансии компании")]),
       _vm._v(" "),
       _vm._l(_vm.companies, function (company) {
         return _c(
@@ -31994,7 +31985,7 @@ var render = function () {
               _c("b", [_vm._v(_vm._s(company.title))]),
             ]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(company.description))]),
+            _c("p", [_vm._v(_vm._s(company.text))]),
             _vm._v(" "),
             _c("div", { staticClass: "paragraph" }, [
               _c(
@@ -32079,8 +32070,6 @@ var render = function () {
             ]),
             _c("br"),
             _vm._v(" "),
-            _c("p", [_vm._v("category")]),
-            _vm._v(" "),
             _c(
               "button",
               {
@@ -32095,22 +32084,6 @@ var render = function () {
             ),
           ]
         )
-      }),
-      _vm._v(" "),
-      _c("vacancy-edit", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.modalShow,
-            expression: "modalShow",
-          },
-        ],
-        on: {
-          closeMe: function ($event) {
-            _vm.modalShow = false
-          },
-        },
       }),
     ],
     2
@@ -34206,8 +34179,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "MainContainer",
+    [
+      _c("company-information"),
+      _vm._v(" "),
+      _c("category-vacancy"),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "but_or btn",
+          on: {
+            click: function ($event) {
+              _vm.isShowing = !_vm.isShowing
+            },
+          },
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "bi bi-plus-square",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "16",
+                height: "16",
+                fill: "currentColor",
+                viewBox: "0 0 16 16",
+              },
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d: "M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z",
+                },
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z",
+                },
+              }),
+            ]
+          ),
+          _vm._v("\n    Добавить вакансию"),
+        ]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", [_c("all-vacancy")], 1),
+    ],
+    1
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 

@@ -1,10 +1,9 @@
 <template>
     <div class="row">
-        
-        <h4 class="oswald">Вакансии</h4>
+        <h4 class="oswald">Другие вакансии компании</h4>
             <div class="company_list col-md-3 comp_list_box radius" v-for="company in companies" :key="company.id">
                 <h6 class="oswald"><b>{{ company.title }}</b></h6>
-                <p>{{ company.description }}</p>
+                <p>{{ company.text }}</p>
                     <div class="paragraph">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
                             <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
@@ -22,22 +21,13 @@
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                         </svg><b>{{ company.srok }}</b>
                     </div><br/>
-                    <p>category</p>
                     <button class="but_or btn" @click="modalShow = !modalShow">Редактировать</button>
-                </div>
-                <vacancy-edit @closeMe="modalShow=false" v-show="modalShow"/>
-
-    </div>
-    <!--modal-->
- 
+            </div>
+    </div> 
 </template>
 
 <script>
-import VacancyEdit from './VacancyEdit.vue'
 export default {
-    components: {
-        VacancyEdit
-    },
     props: {
         data: {
             type: Array,
@@ -52,10 +42,12 @@ export default {
                 {
                     id: 1,
                     title: 'Строитель - BI GROUP',
-                    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                     salary: '250 000 тг',
                     practice: '1 - 3 года',
                     srok: '6 месяцев',
+                    vacancyName: 'Строитель',
                     tip: 'Практика',
                     logo: '../assets/images/bi.png'
                     
