@@ -25,6 +25,7 @@ Vue.component('vacancy-response-comp', require('./components/allcomp/VacancyResp
 Vue.component('vacancy-view', require('./components/allcomp/VacancyView.vue').default);
 Vue.component('company-information', require('./components/allcomp/CompanyInformation.vue').default);
 
+
 Vue.component('company-vacancy', require('./components/views/CompanyVacancy.vue').default);
 Vue.component('company-view', require('./components/views/CompanyView.vue').default);
 Vue.component('enter-view', require('./components/views/EnterView.vue').default);

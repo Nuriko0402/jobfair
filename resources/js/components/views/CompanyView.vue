@@ -7,8 +7,8 @@
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
             </svg>
         Добавить вакансию</button>
-        <vacancy-form @closeMe="isShowing=false" v-show="isShowing"/>
-        <vacancy-list :vacancies="vacancies"/>
+        <vacancy-form @closeMe="isShowing=false" v-show="isShowing" @create="createVacancy"/><br /><br />
+        <vacancy-list :vacancies="vacancies" @remove="removeVacancy"/>
     </MainContainer>    
 </template>
 
@@ -28,7 +28,7 @@ export default {
     props: {
         data: {
             type: Array,
-            default: () => [],
+            required: true
         }
     },
     data(){
@@ -47,29 +47,15 @@ export default {
                     
                 }
             ],
-            title: '',
-            description: '',
-            salary: '',
-            practice: '',
-            srok: '',
-            tip: ''
+            
         }
     },
         methods: {
         closeModal(){
             this.isShowing = false;
         },
-        createPost(){
-            const newVacancy = {
-                id: Date.now(),
-                title:this.title,
-                description:this.description,
-                salary:this.salary,
-                practice:this.practice,
-                srok:this.srok,
-                tip:this.tip
-            }
-            this.vacancies.push(newVacancy);
+        createVacancy(vacancy){
+            this.vacancies.push(vacancy);
             this.title = '';
             this.description = '';
             this.salary = '';
@@ -77,6 +63,9 @@ export default {
             this.srok = '';
             this.tip = '';
             this.closeModal();
+        },
+        removeVacancy(vacancy) {
+            this.vacancies = this.vacancies.filter(p => p.id !== vacancy.id)
         }
     }
 }

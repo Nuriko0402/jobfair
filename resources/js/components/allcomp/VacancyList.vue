@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <h4 class="oswald">Вакансии</h4>
-        <div class="vacancy_list col-md-3 comp_list_box radius" v-for="vacancy in vacancies" :key="vacancy.id">
+<div>
+    <div class="row" v-show="vacancies.length > 0">
+        <h4 class="oswald">Ваши вакансии</h4>
+        <div class="vacancy_list col-md-3 comp_list_box radius" v-for="vacancy in vacancies" :key="vacancy.id" @remove="$emit('remove', vacancy)">
             <h6 class="oswald"><b>{{ vacancy.title }}</b></h6>
                <p>{{ vacancy.description }}</p>
                    <div class="paragraph">
@@ -21,9 +22,11 @@
                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                        </svg><b>{{ vacancy.srok }}</b>
                    </div><br/>
-                   <button class="but_or btn" @click="modalShow = !modalShow">Редактировать</button>
+                   <button @click="$emit('remove', vacancy)" class="btn but_or">Удалить</button>
         </div> 
     </div>
+    <h5 v-show="vacancies.length === 0">Список вакансии пуст</h5>
+</div>    
 </template>
 <script>
 
@@ -36,3 +39,10 @@ export default {
     }
 }
 </script>
+<style scoped>
+    h5 {
+        padding: 3% 0;
+        color: #a5a5a5;
+        font-size: 1rem;
+    }
+</style>

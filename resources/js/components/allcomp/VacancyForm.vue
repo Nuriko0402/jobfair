@@ -11,11 +11,8 @@
                 class="w-100" 
                 required>
                 <br />
-                
-                <!-- <select 
+                <select 
                 v-model="vacancy.srok" 
-                name="" 
-                id="" 
                 class="w-100" 
                 required>
                     <option disabled value="">Срок</option>
@@ -26,7 +23,7 @@
                 <select 
                 v-model="vacancy.practice" 
                 class="w-100" 
-                required multiple>
+                required>
                     <option disabled value="">Занятость</option>
                     <option>Занятость 2</option>
                     <option>Занятость 3</option>
@@ -55,28 +52,41 @@
                 v-model="vacancy.description" 
                 class="w-100" 
                 placeholder="Описание вакансии" 
-                required></textarea><br /> -->
+                required></textarea><br />
 
-                <button class="btn but_or w-100" @click="createPost">Создать</button> 
+                <button class="btn but_or" @click="createVacancy">Создать</button>
             </form>
         </div>
 </template>
 <script>
 export default {
+
+    data(){
+        return {
+                vacancy: {
+                    title: '',
+                    description: '',
+                    salary: '',
+                    practice: '',
+                    srok: '',
+                    tip: ''
+                }
+        }
+    },
     methods: {
         closeModal(){
             this.$emit('closeMe')
-        }
-    },
-    data(){
-        return{
-            vacancy: {
+        },
+        createVacancy(){
+            this.vacancy.id = Date.now();
+            this.$emit('create', this.vacancy);
+            this.vacancy = {
                 title: '',
                 description: '',
                 salary: '',
                 practice: '',
                 srok: '',
-                tip: ''
+                tip: '' 
             }
         }
     }

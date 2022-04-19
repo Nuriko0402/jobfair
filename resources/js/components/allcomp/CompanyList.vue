@@ -32,30 +32,30 @@
 
                 <!--список rомпании-->
                 <br/><br/>
-                <div class="company_list" v-for="item in companies" :key="item.id" @click="companyClick(item.id)">
+                <div class="company_list" v-for="vacancy in vacancies" :key="vacancy.id" @click="companyClick(vacancy.id)">
                     <div class="d-flex">
-                        <h6 class="oswald"><b>{{item.salary}}</b></h6>
-                        <span class="tip">{{item.tip}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
+                        <h6 class="oswald"><b>{{vacancy.salary}}</b></h6>
+                        <span class="tip">{{vacancy.tip}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
                     </div>
-                    <span><b>{{ item.vacancyName }}</b></span>
-                    <p class="monserat">{{item.text}}</p>
+                    <span><b>{{ vacancy.vacancyName }}</b></span>
+                    <p class="monserat">{{vacancy.text}}</p>
                         <div class="row pr">
                             <div class="col-lg-6 col-md-4 paragraph">
-                                <img :src="item.logo" class="logo_company_in_list" :alt="item.title">
-                                {{ item.title }}
+                                <img :src="vacancy.logo" class="logo_company_in_list" :alt="vacancy.title">
+                                {{ vacancy.title }}
                             </div>
                             <div class="col-lg-3 col-md-4 paragraph">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
                                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                {{ item.practice }}
+                                {{ vacancy.practice }}
                             </div>
                             <div class="col-lg-3 col-md-4 paragraph">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
                                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                 </svg>
-                                {{ item.srok }}
+                                {{ vacancy.srok }}
                             </div>
                         </div>
                 </div>
@@ -109,7 +109,7 @@ export default {
             isShowing: false,
             isShowingSearch: false,
             search:'',
-            companies: [ 
+            vacancies: [ 
                 {
                     id: 1,
                     title: 'Строитель - BI GROUP',
