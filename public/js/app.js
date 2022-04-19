@@ -6616,15 +6616,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       step: 1,
       company: {
-        title: '',
-        address: '',
-        bin: '',
-        iik: '',
-        kbe: '',
-        email: '',
-        phone: '',
-        password: '',
-        password_confirm: ''
+        title: 'Maksat',
+        address: 'Almaty',
+        bin: '123456',
+        iik: '123456',
+        kbe: '123456',
+        email: 'janatmaksat@gmail.com',
+        phone: '87475629170',
+        password: '12345',
+        password_confirmation: '123456'
       }
     };
   },
@@ -6636,9 +6636,11 @@ __webpack_require__.r(__webpack_exports__);
       this.step--;
     },
     signup: function signup() {
-      axios.post("/signup", {
-        company: this.company
-      }).then(function (response) {}).then(function (error) {});
+      axios.post("/api/company-registration", this.company).then(function (response) {
+        console.log(response);
+      }).then(function (error) {
+        console.log(response);
+      });
     }
   }
 });
@@ -34447,15 +34449,15 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.company.name,
-                                          expression: "company.name",
+                                          value: _vm.company.title,
+                                          expression: "company.title",
                                         },
                                       ],
                                       attrs: {
                                         type: "text",
                                         placeholder: "Название компании",
                                       },
-                                      domProps: { value: _vm.company.name },
+                                      domProps: { value: _vm.company.title },
                                       on: {
                                         input: function ($event) {
                                           if ($event.target.composing) {
@@ -34463,7 +34465,7 @@ var render = function () {
                                           }
                                           _vm.$set(
                                             _vm.company,
-                                            "name",
+                                            "title",
                                             $event.target.value
                                           )
                                         },
@@ -34696,9 +34698,10 @@ var render = function () {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.company.password_confirm,
+                                          value:
+                                            _vm.company.password_confirmation,
                                           expression:
-                                            "company.password_confirm",
+                                            "company.password_confirmation",
                                         },
                                       ],
                                       attrs: {
@@ -34706,7 +34709,8 @@ var render = function () {
                                         placeholder: "Повторите пароль",
                                       },
                                       domProps: {
-                                        value: _vm.company.password_confirm,
+                                        value:
+                                          _vm.company.password_confirmation,
                                       },
                                       on: {
                                         input: function ($event) {
@@ -34715,7 +34719,7 @@ var render = function () {
                                           }
                                           _vm.$set(
                                             _vm.company,
-                                            "password_confirm",
+                                            "password_confirmation",
                                             $event.target.value
                                           )
                                         },

@@ -31,7 +31,7 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                             <div class="step" v-show="step === 1">
-                                            <input v-model="company.name" type="text" placeholder="Название компании">
+                                            <input v-model="company.title" type="text" placeholder="Название компании">
                                             <input v-model="company.address" type="text" placeholder="Адрес">
                                             <input v-model="company.bin" type="text" placeholder="БИН / ИИН">
                                             <input v-model="company.iik" type="text" placeholder="ИИК">
@@ -42,7 +42,7 @@
                                             <input v-model="company.phone" type="text" placeholder="Телефон">
                                             <input v-model="company.email" type="text" placeholder="Email">
                                             <input v-model="company.password" type="password" placeholder="Придумайте пароль">
-                                            <input v-model="company.password_confirm" type="password" placeholder="Повторите пароль">
+                                            <input v-model="company.password_confirmation" type="password" placeholder="Повторите пароль">
                                             <button @click="backStep" class="btn w-100">Назад</button>
                                             <button @click.prevent="signup" type="submit" class="btn but_or w-100">Зарегистрироваться</button>
                                         </div>
@@ -108,15 +108,15 @@ export default {
       return {
           step: 1,
           company: {
-              title: '',
-              address: '',
-              bin: '', 
-              iik: '',
-              kbe: '',
-              email: '',
-              phone: '',
-              password: '',
-              password_confirm: '',
+              title: 'Maksat',
+              address: 'Almaty',
+              bin: '123456', 
+              iik: '123456',
+              kbe: '123456',
+              email: 'janatmaksat@gmail.com',
+              phone: '87475629170',
+              password: '12345',
+              password_confirmation: '123456',
           }
       }
   },
@@ -129,12 +129,11 @@ export default {
             this.step --;
         },
         signup() {
-            axios.post("/signup", {
-                company: this.company
-            }).then(response => {
-
+            axios.post("/api/company-registration", this.company)
+            .then(response => {
+                console.log(response)
             }).then(error => {
-
+                console.log(response)
             })
         }
     }
