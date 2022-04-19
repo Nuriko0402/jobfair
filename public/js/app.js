@@ -5337,6 +5337,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5357,12 +5359,10 @@ __webpack_require__.r(__webpack_exports__);
       companies: [{
         id: 1,
         title: 'Строитель - BI GROUP',
-        text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         salary: '250 000 тг',
         practice: '1 - 3 года',
         srok: '6 месяцев',
-        vacancyName: 'Строитель',
         tip: 'Практика',
         logo: '../assets/images/bi.png'
       }]
@@ -6131,9 +6131,47 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/allcomp/VacancyEdit.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/ainur/jobfair/resources/js/components/allcomp/VacancyEdit.vue: Missing semicolon. (24:20)\n\n\u001b[0m \u001b[90m 22 |\u001b[39m         closeModal(){\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$emit(\u001b[32m'closeMe'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m         createPost() {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 |\u001b[39m             \u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m         }    \u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m         }\u001b[0m\n    at instantiate (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.semicolon (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3996:10)\n    at Parser.parseExpressionStatement (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15134:10)\n    at Parser.parseStatementContent (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:14681:19)\n    at Parser.parseStatement (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15176:25)\n    at Parser.parseBlockBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15167:10)\n    at Parser.parseBlock (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15151:10)\n    at Parser.parseFunctionBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13841:24)\n    at Parser.parseFunctionBodyAndFinish (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13825:10)\n    at Parser.parseMethod (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13775:10)\n    at Parser.parseObjectMethod (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13651:19)\n    at Parser.parseObjPropValue (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13692:23)\n    at Parser.parsePropertyDefinition (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13609:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    closeModal: function closeModal() {
+      this.$emit('closeMe');
+    }
+  }
+});
 
 /***/ }),
 
@@ -31956,7 +31994,7 @@ var render = function () {
               _c("b", [_vm._v(_vm._s(company.title))]),
             ]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(company.text))]),
+            _c("p", [_vm._v(_vm._s(company.description))]),
             _vm._v(" "),
             _c("div", { staticClass: "paragraph" }, [
               _c(
@@ -32040,6 +32078,8 @@ var render = function () {
               _c("b", [_vm._v(_vm._s(company.srok))]),
             ]),
             _c("br"),
+            _vm._v(" "),
+            _c("p", [_vm._v("category")]),
             _vm._v(" "),
             _c(
               "button",
@@ -33603,25 +33643,65 @@ var render = function () {
     _vm._v(" "),
     _c("input", {
       staticClass: "w-100",
-      attrs: { type: "text", placeholder: "Название" },
+      attrs: {
+        type: "text",
+        placeholder: "Наименование вакансии",
+        required: "",
+      },
+      domProps: { value: _vm.title },
     }),
     _c("br"),
     _vm._v(" "),
-    _vm._m(0),
+    _c(
+      "select",
+      {
+        staticClass: "w-100",
+        attrs: { name: "", id: "", required: "" },
+        domProps: { value: _vm.srok },
+      },
+      [_c("option", { attrs: { value: "" } }, [_vm._v("Срок")])]
+    ),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        staticClass: "w-100",
+        attrs: { name: "", id: "", required: "" },
+        domProps: { value: _vm.practice },
+      },
+      [_c("option", { attrs: { value: "" } }, [_vm._v("Занятость")])]
+    ),
     _c("br"),
     _vm._v(" "),
     _c("input", {
       staticClass: "w-100",
-      attrs: { type: "text", placeholder: "Зарплата" },
+      attrs: { type: "text", placeholder: "Зарплата", required: "" },
+      domProps: { value: _vm.salary },
     }),
     _c("br"),
     _vm._v(" "),
-    _vm._m(1),
+    _c(
+      "select",
+      {
+        staticClass: "w-100",
+        attrs: { name: "", id: "", required: "" },
+        domProps: { value: _vm.tip },
+      },
+      [_c("option", { attrs: { value: "" } }, [_vm._v("Выберите тип")])]
+    ),
     _c("br"),
     _vm._v(" "),
-    _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _vm._v("Описание вакансии"),
-    ]),
+    _c("textarea", {
+      staticClass: "w-100",
+      attrs: {
+        name: "",
+        id: "",
+        placeholder: "Описание вакансии",
+        required: "",
+      },
+      domProps: { value: _vm.description },
+    }),
     _c("br"),
     _vm._v(" "),
     _c(
@@ -33631,24 +33711,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("Срок")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("select", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _c("option", { attrs: { value: "" } }, [_vm._v("Выберите тип")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -34143,84 +34206,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "MainContainer",
-    [
-      _c("company-information"),
-      _vm._v(" "),
-      _c("category-vacancy"),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "but_or btn",
-          on: {
-            click: function ($event) {
-              _vm.isShowing = !_vm.isShowing
-            },
-          },
-        },
-        [
-          _c(
-            "svg",
-            {
-              staticClass: "bi bi-plus-square",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "16",
-                height: "16",
-                fill: "currentColor",
-                viewBox: "0 0 16 16",
-              },
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d: "M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z",
-                },
-              }),
-              _vm._v(" "),
-              _c("path", {
-                attrs: {
-                  d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z",
-                },
-              }),
-            ]
-          ),
-          _vm._v("\n    Добавить вакансию"),
-        ]
-      ),
-      _vm._v(" "),
-      _c("vacancy-edit", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isShowing,
-            expression: "isShowing",
-          },
-        ],
-        on: {
-          closeMe: function ($event) {
-            _vm.isShowing = false
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", [_c("all-vacancy")], 1),
-    ],
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
