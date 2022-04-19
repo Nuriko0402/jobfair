@@ -3,7 +3,10 @@
 /public/storage
 /storage/*.key
 /vendor
+/public/css/app.css
+/public/js/app.js
 .env
+Nginx-1.14_vhost.conf
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
