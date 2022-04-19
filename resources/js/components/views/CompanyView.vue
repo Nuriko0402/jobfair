@@ -8,7 +8,7 @@
             </svg>
         Добавить вакансию</button>
         <vacancy-form @closeMe="isShowing=false" v-show="isShowing"/>
-        <vacancy-list />
+        <vacancy-list :vacancies="vacancies"/>
     </MainContainer>    
 </template>
 

@@ -1,19 +1,19 @@
 <template>
-    <div v-if="isShowing" class="monserat vacancyedit">
+    <div class="monserat vacancyedit">
             <form @submit.prevent>
                 <h5 class="oswald">Создать вакансию
                 <span @click="closeModal" class="close_btn">x</span>
                 </h5>
                 <input 
-                v-model="title"  
+                v-model="vacancy.title"  
                 type="text" 
                 placeholder="Наименование вакансии" 
                 class="w-100" 
                 required>
                 <br />
                 
-                <select 
-                v-model="srok" 
+                <!-- <select 
+                v-model="vacancy.srok" 
                 name="" 
                 id="" 
                 class="w-100" 
@@ -24,7 +24,7 @@
                 <br />
 
                 <select 
-                v-model="practice" 
+                v-model="vacancy.practice" 
                 class="w-100" 
                 required multiple>
                     <option disabled value="">Занятость</option>
@@ -35,7 +35,7 @@
                 <br />
 
                 <input 
-                v-model="salary" 
+                v-model="vacancy.salary" 
                 type="text" 
                 placeholder="Зарплата" 
                 class="w-100" 
@@ -43,7 +43,7 @@
                 <br />
 
                 <select 
-                v-model="tip"  
+                v-model="vacancy.tip"  
                 class="w-100" 
                 required>
                     <option disabled value="">Выберите тип</option>  
@@ -52,12 +52,34 @@
                 <br />
 
                 <textarea 
-                v-model="description" 
+                v-model="vacancy.description" 
                 class="w-100" 
                 placeholder="Описание вакансии" 
-                required></textarea><br />
+                required></textarea><br /> -->
 
                 <button class="btn but_or w-100" @click="createPost">Создать</button> 
             </form>
         </div>
 </template>
+<script>
+export default {
+    methods: {
+        closeModal(){
+            this.$emit('closeMe')
+        }
+    },
+    data(){
+        return{
+            vacancy: {
+                title: '',
+                description: '',
+                salary: '',
+                practice: '',
+                srok: '',
+                tip: ''
+            }
+        }
+    }
+
+}
+</script>

@@ -27,5 +27,12 @@
 </template>
 <script>
 
-export default {}
+export default {
+    props: {
+        vacancies: {
+            type: Array,
+            required: true
+        }
+    }
+}
 </script>
