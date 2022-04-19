@@ -1,6 +1,6 @@
 <template>
         <div class="monserat vacancyedit">
-            <h5 class="oswald">Вакансия
+            <h5 class="oswald">Создать вакансию
                 <span @click="closeModal" class="close_btn">x</span>
             </h5>
             <input type="text" placeholder="Название" class="w-100"><br />
@@ -12,7 +12,7 @@
                 <option value="">Выберите тип</option>    
             </select><br />
             <textarea name="" id="" class="w-100">Описание вакансии</textarea><br />
-            <button class="btn but_or w-100">Сохранить</button> 
+            <button class="btn but_or w-100" @click="createPost">Создать</button> 
         </div>   
 </template>
 
@@ -20,7 +20,10 @@
 export default {
     methods: {
         closeModal(){
-            this.$emit('closeMe')
+            this.$emit('closeMe');
+        createPost() {
+
+        }    
         }
     }
 

@@ -5544,23 +5544,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6148,38 +6131,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/allcomp/VacancyEdit.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    closeModal: function closeModal() {
-      this.$emit('closeMe');
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/ainur/jobfair/resources/js/components/allcomp/VacancyEdit.vue: Missing semicolon. (24:20)\n\n\u001b[0m \u001b[90m 22 |\u001b[39m         closeModal(){\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$emit(\u001b[32m'closeMe'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m         createPost() {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 |\u001b[39m             \u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m         }    \u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m         }\u001b[0m\n    at instantiate (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.semicolon (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:3996:10)\n    at Parser.parseExpressionStatement (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15134:10)\n    at Parser.parseStatementContent (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:14681:19)\n    at Parser.parseStatement (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15176:25)\n    at Parser.parseBlockBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15167:10)\n    at Parser.parseBlock (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:15151:10)\n    at Parser.parseFunctionBody (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13841:24)\n    at Parser.parseFunctionBodyAndFinish (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13825:10)\n    at Parser.parseMethod (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13775:10)\n    at Parser.parseObjectMethod (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13651:19)\n    at Parser.parseObjPropValue (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13692:23)\n    at Parser.parsePropertyDefinition (/home/ainur/jobfair/node_modules/@babel/parser/lib/index.js:13609:10)");
 
 /***/ }),
 
@@ -31988,7 +31942,7 @@ var render = function () {
     "div",
     { staticClass: "row" },
     [
-      _c("h4", { staticClass: "oswald" }, [_vm._v("Другие вакансии компании")]),
+      _c("h4", { staticClass: "oswald" }, [_vm._v("Вакансии")]),
       _vm._v(" "),
       _vm._l(_vm.companies, function (company) {
         return _c(
@@ -32324,105 +32278,8 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(company.text))]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "but_or btn",
-                on: {
-                  click: function ($event) {
-                    _vm.modalShow = !_vm.modalShow
-                  },
-                },
-              },
-              [_vm._v("Редактировать")]
-            ),
           ]),
         ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.modalShow,
-                expression: "modalShow",
-              },
-            ],
-            staticClass: "modal-body",
-          },
-          [
-            _c("h4", { staticClass: "oswald" }, [
-              _vm._v(_vm._s(company.title) + "\n                "),
-              _c(
-                "span",
-                {
-                  staticClass: "close_btn",
-                  on: {
-                    click: function ($event) {
-                      _vm.modalShow = !_vm.modalShow
-                    },
-                  },
-                },
-                [_vm._v("x")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "w-100",
-              attrs: { type: "text", placeholder: company.title },
-            }),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "select",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v(_vm._s(company.srok)),
-                ]),
-              ]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "w-100",
-              attrs: { type: "text", placeholder: company.salary },
-            }),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "select",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v(_vm._s(company.tip)),
-                ]),
-              ]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "textarea",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [_vm._v("Условия")]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c(
-              "textarea",
-              { staticClass: "w-100", attrs: { name: "", id: "" } },
-              [_vm._v("Требования")]
-            ),
-            _c("br"),
-            _vm._v(" "),
-            _c("button", { staticClass: "btn but_or w-100" }, [
-              _vm._v("Сохранить"),
-            ]),
-          ]
-        ),
       ])
     }),
     0
@@ -33738,7 +33595,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "monserat vacancyedit" }, [
     _c("h5", { staticClass: "oswald" }, [
-      _vm._v("Вакансия\n        "),
+      _vm._v("Создать вакансию\n        "),
       _c("span", { staticClass: "close_btn", on: { click: _vm.closeModal } }, [
         _vm._v("x"),
       ]),
@@ -33767,7 +33624,11 @@ var render = function () {
     ]),
     _c("br"),
     _vm._v(" "),
-    _c("button", { staticClass: "btn but_or w-100" }, [_vm._v("Сохранить")]),
+    _c(
+      "button",
+      { staticClass: "btn but_or w-100", on: { click: _vm.createPost } },
+      [_vm._v("Создать")]
+    ),
   ])
 }
 var staticRenderFns = [

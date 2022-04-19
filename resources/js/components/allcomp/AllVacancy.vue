@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <h4 class="oswald">Другие вакансии компании</h4>
+        <h4 class="oswald">Вакансии</h4>
             <div class="company_list col-md-3 comp_list_box radius" v-for="company in companies" :key="company.id">
                 <h6 class="oswald"><b>{{ company.title }}</b></h6>
                 <p>{{ company.text }}</p>
