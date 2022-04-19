@@ -1,6 +1,40 @@
 <template>
     <div class="row">
-        <h4 class="oswald">Другие вакансии компании</h4>
+        <button class="but_or btn" @click="isShowing = !isShowing">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        Добавить вакансию</button>
+
+        <div class="monserat vacancyedit" v-show="isShowing">
+            <h5 class="oswald">Создать вакансию
+                <span @click="closeModal" class="close_btn">x</span>
+            </h5>
+            <input v-bind:value="title" type="text" placeholder="Наименование вакансии" class="w-100" required><br />
+            
+            <select v-bind:value="srok" name="" id="" class="w-100" required>
+                <option value="">Срок</option>
+            </select><br />
+
+            <select v-bind:value="practice" name="" id="" class="w-100" required>
+                <option value="">Занятость</option>
+            </select><br />
+
+            <input v-bind:value="salary" type="text" placeholder="Зарплата" class="w-100" required><br />
+
+            <select v-bind:value="tip" name="" id="" class="w-100" required>
+                <option value="">Выберите тип</option>    
+            </select><br />
+
+            <textarea v-bind:value="description" name="" id="" class="w-100" placeholder="Описание вакансии" required></textarea><br />
+
+            <button class="btn but_or w-100" @click="createPost">Создать</button> 
+        </div>   
+
+
+
+        <h4 class="oswald">Вакансии</h4>
             <div class="company_list col-md-3 comp_list_box radius" v-for="company in companies" :key="company.id">
                 <h6 class="oswald"><b>{{ company.title }}</b></h6>
                 <p>{{ company.text }}</p>
@@ -36,7 +70,7 @@ export default {
     },
     data(){
         return {
-            modalShow: false,
+            isShowing: false,
             search:'',
             companies: [
                 {
@@ -52,10 +86,13 @@ export default {
                     logo: '../assets/images/bi.png'
                     
                 },
-    
-]
+            ]
         }
     },
+    methods: {
+        closeModal(){
+            this.$emit('closeMe')
+    }
     // computed:{
     //     filteredCompnylist: function() {
     //         return this.data.filter((company) => {
@@ -65,3 +102,8 @@ export default {
     // }
 }
 </script>
+<style scoped>
+    .vacancyedit {
+        margin: 5% 0;
+    }
+</style>
