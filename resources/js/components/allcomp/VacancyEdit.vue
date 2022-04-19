@@ -11,8 +11,7 @@
             <select name="" id="" class="w-100">
                 <option value="">Выберите тип</option>    
             </select><br />
-            <textarea name="" id="" class="w-100">Условия</textarea><br />
-            <textarea name="" id="" class="w-100">Требования</textarea><br />
+            <textarea name="" id="" class="w-100">Описание вакансии</textarea><br />
             <button class="btn but_or w-100">Сохранить</button> 
         </div>   
 </template>

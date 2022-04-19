@@ -70,6 +70,8 @@
                                     <div class="mb-3">
                                         <input type="text" placeholder="Фамилия">
                                         <input type="text" placeholder="Имя">
+                                        <input type="text" placeholder="ИИН">
+                                        <input type="text" placeholder="GPA">
                                         <input type="text" placeholder="Контакты">
                                         <input type="text" placeholder="Email">
                                         <input type="text" placeholder="Придумайте пароль">

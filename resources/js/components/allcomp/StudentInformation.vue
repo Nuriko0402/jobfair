@@ -49,6 +49,9 @@
             <p><b>Образование:</b><br />
                 {{student.education}}
             </p>
+            <p><b>ОП / Специализация:</b><br />
+                {{student.specialization}}
+            </p>
             <p><b>Желаемый размер зарплаты:</b><br />
                 {{student.sallary}}
             </p>
@@ -74,6 +77,7 @@ export default {
                     id: 1,
                     photo: 'images/photo.jpg',
                     fio: 'Отыншиева Айнур Мусаевна',
+                    specialization: 'specialization',
                     sallary: '550 000',
                     experience: '1 - 3 года',
                     education: 'Высшее',

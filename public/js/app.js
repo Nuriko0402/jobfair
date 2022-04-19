@@ -5469,6 +5469,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -5839,6 +5843,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5938,6 +5946,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5946,6 +5957,7 @@ __webpack_require__.r(__webpack_exports__);
         id: 1,
         photo: 'images/photo.jpg',
         fio: 'Отыншиева Айнур Мусаевна',
+        specialization: 'specialization',
         sallary: '550 000',
         experience: '1 - 3 года',
         education: 'Высшее',
@@ -6143,7 +6155,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -6509,6 +6520,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -32184,6 +32197,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "company_filter" }, [
+      _c("ul", [
+        _vm._v("Все(35)\n        "),
+        _c("li", [_vm._v("Административный персонал")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Безопасность")]),
+      ]),
+      _vm._v(" "),
       _c("div", [_vm._v("Все(35)")]),
       _vm._v(" "),
       _c("div", [_vm._v("Административный персонал")]),
@@ -33051,12 +33071,15 @@ var render = function () {
           }),
           _c("br"),
           _vm._v(" "),
+          _vm._m(0, true),
+          _c("br"),
+          _vm._v(" "),
           _c("input", {
-            attrs: { type: "text", placeholder: "Учебное заведение:" },
+            attrs: { type: "text", placeholder: "ОП / Специализация" },
           }),
           _c("br"),
           _vm._v(" "),
-          _vm._m(0, true),
+          _vm._m(1, true),
           _c("br"),
           _vm._v(" "),
           _c("input", {
@@ -33065,7 +33088,7 @@ var render = function () {
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),
-          _vm._m(1, true),
+          _vm._m(2, true),
           _c("br"),
           _vm._v(" "),
           _c("input", {
@@ -33081,6 +33104,16 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("select", [
+      _c("option", { attrs: { value: "" } }, [_vm._v("Учебное заведение")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "" } }, [_vm._v("MOK")]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -33280,6 +33313,14 @@ var render = function () {
               _c("br"),
               _vm._v(
                 "\n            " + _vm._s(student.education) + "\n        "
+              ),
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("b", [_vm._v("ОП / Специализация:")]),
+              _c("br"),
+              _vm._v(
+                "\n            " + _vm._s(student.specialization) + "\n        "
               ),
             ]),
             _vm._v(" "),
@@ -33722,12 +33763,7 @@ var render = function () {
     _c("br"),
     _vm._v(" "),
     _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _vm._v("Условия"),
-    ]),
-    _c("br"),
-    _vm._v(" "),
-    _c("textarea", { staticClass: "w-100", attrs: { name: "", id: "" } }, [
-      _vm._v("Требования"),
+      _vm._v("Описание вакансии"),
     ]),
     _c("br"),
     _vm._v(" "),
@@ -34905,6 +34941,10 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("input", { attrs: { type: "text", placeholder: "Имя" } }),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "text", placeholder: "ИИН" } }),
+                  _vm._v(" "),
+                  _c("input", { attrs: { type: "text", placeholder: "GPA" } }),
                   _vm._v(" "),
                   _c("input", {
                     attrs: { type: "text", placeholder: "Контакты" },

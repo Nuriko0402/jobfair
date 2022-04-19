@@ -3,7 +3,11 @@
         <h4 class="oswald">О себе</h4>
         <div v-for="student in students" :key="student.id">
             <textarea name="" placeholder="Кратко о себе:"></textarea><br />
-            <input type="text" placeholder="Учебное заведение:"><br />
+            <select>
+                <option value="">Учебное заведение</option>
+                <option value="">MOK</option>
+            </select><br />
+            <input type="text" placeholder="ОП / Специализация"><br />
             <select>
                 <option value="">dd</option>
                 <option value="">Высшее</option>
