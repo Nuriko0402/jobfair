@@ -97,11 +97,11 @@ export default {
       CompanySearch,
       CompanySearchMob,
 
-      },
+    },
     props: {
-        data: {
+        vacancies: {
             type: Array,
-            default: () => [],
+            required: true
         }
     },
     data() {
@@ -109,32 +109,7 @@ export default {
             isShowing: false,
             isShowingSearch: false,
             search:'',
-            vacancies: [ 
-                {
-                    id: 1,
-                    title: 'Строитель - BI GROUP',
-                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                    requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                    salary: '250 000 тг',
-                    practice: '1 - 3 года',
-                    srok: '6 месяцев',
-                    vacancyName: 'Строитель',
-                    tip: 'Практика',
-                    logo: '/images/bi.png'
-                },
-                {
-                    id: 2,
-                    title: 'Дизайнер - BI GROUP',
-                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                    requirement: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                    salary: '550 000 тг',
-                    practice: '10 лет',
-                    srok: '17 месяцев',
-                    vacancyName: 'Дизайнер',
-                    tip: 'Практика',
-                    logo: '/images/bi.png'
-                },
-            ]
+            vacancies: [ ]
         }
     },
     methods: {

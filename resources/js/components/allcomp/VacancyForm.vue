@@ -12,22 +12,27 @@
                 required>
                 <br />
                 <select 
-                v-model="vacancy.srok" 
+                v-model="vacancy.experience" 
                 class="w-100" 
                 required>
-                    <option disabled value="">Срок</option>
-                    <option>Срок 2</option>
+                    <option disabled value="">Опыт работы</option>
+                    <option>не имеет значения</option>
+                    <option>от 1 года до 3 лет</option>
+                    <option>нет опыта</option>
+                    <option>от 3 до 6 лет</option>
+                    <option>более 6 лет</option>
                 </select>
                 <br />
 
                 <select 
-                v-model="vacancy.practice" 
+                v-model="vacancy.schedule" 
                 class="w-100" 
                 required>
-                    <option disabled value="">Занятость</option>
-                    <option>Занятость 2</option>
-                    <option>Занятость 3</option>
-                    <option>Занятость 5</option>
+                    <option disabled value="">График работы</option>
+                    <option>полный день</option>
+                    <option>сменный график</option>
+                    <option>удаленная работа</option>
+                    <option>гибкий график</option>
                 </select>
                 <br />
 
@@ -43,8 +48,12 @@
                 v-model="vacancy.tip"  
                 class="w-100" 
                 required>
-                    <option disabled value="">Выберите тип</option>  
-                    <option>Выберите тип 2</option>   
+                    <option disabled value="">Тип занятости</option>
+                    <option>полная занятость</option>
+                    <option>частичная занятость</option>
+                    <option>стажировка</option>
+                    <option>проектная работа</option>
+                    <option>волонтерство</option>
                 </select>
                 <br />
 
@@ -67,8 +76,8 @@ export default {
                     title: '',
                     description: '',
                     salary: '',
-                    practice: '',
-                    srok: '',
+                    schedule: '',
+                    experience: '',
                     tip: ''
                 }
         }
@@ -84,8 +93,8 @@ export default {
                 title: '',
                 description: '',
                 salary: '',
-                practice: '',
-                srok: '',
+                schedule: '',
+                experience: '',
                 tip: '' 
             }
         }

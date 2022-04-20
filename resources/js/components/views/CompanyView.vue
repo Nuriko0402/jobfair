@@ -8,7 +8,8 @@
             </svg>
         Добавить вакансию</button>
         <vacancy-form @closeMe="isShowing=false" v-show="isShowing" @create="createVacancy"/><br /><br />
-        <vacancy-list :vacancies="vacancies" @remove="removeVacancy"/>
+        <vacancy-list :vacancies="vacancies" @remove="removeVacancy" v-if="!isVacanciesLoading"/>
+        <div v-else>идет загрузка...</div>
     </MainContainer>    
 </template>
 
@@ -17,7 +18,7 @@ import MainContainer from '../allcomp/MainContainer.vue'
 import CompanyInformation from '../allcomp/CompanyInformation.vue'
 import VacancyList from '../allcomp/VacancyList.vue'
 import VacancyForm from '../allcomp/VacancyForm.vue'
-
+import axios from 'axios'
 export default {
     components: {
         CompanyInformation,
@@ -35,18 +36,8 @@ export default {
         return {
             isShowing: false,
             search:'',
-            vacancies: [
-                {
-                    id: 1,
-                    title: 'Строитель - BI GROUP',
-                    description: 'Lorem ipsum dolor sit amet, veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                    salary: '250 000 тг',
-                    practice: '1 - 3 года',
-                    srok: '6 месяцев',
-                    tip: 'Практика',
-                    
-                }
-            ],
+            vacancies: [],
+            isVacanciesLoading: false
             
         }
     },
@@ -59,14 +50,27 @@ export default {
             this.title = '';
             this.description = '';
             this.salary = '';
-            this.practice = '';
-            this.srok = '';
+            this.schedule = '';
+            this.experience = '';
             this.tip = '';
             this.closeModal();
         },
         removeVacancy(vacancy) {
             this.vacancies = this.vacancies.filter(p => p.id !== vacancy.id)
+        },
+        async fetchVacancies() {
+            try {
+                this.isVacanciesLoading = true;
+                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5');
+                    this.vacancies = response.data;
+                    this.isVacanciesLoading = false;
+            } catch(e){
+                alert('Ошибка')
+            } finally {}
         }
+    },
+    mounted() {
+        this.fetchVacancies();
     }
 }
 </script>
