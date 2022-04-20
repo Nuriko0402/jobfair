@@ -4,16 +4,16 @@
             <!--фильтр по специализации-->
             <div class="col-lg-3 col-md-12">
                <div class="row oswald mob_filter">
-                    <div class="col-6" @click="isShowing = !isShowing">
+                    <div class="col-6">
                         <b class="mob_none">Специализации</b>
-                        <span class="desk_none"><b>
+                        <span class="desk_none" @click="isShowing = !isShowing"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left none" viewBox="0 0 16 16">
                                 <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>Специализации</b>
                         </span>     
                     </div>
-                    <div class="col-6" @click="isShowingSearch = !isShowingSearch">
-                        <span class="showing_search desk_none"><b>
+                    <div class="col-6">
+                        <span class="showing_search desk_none" @click="isShowingSearch = !isShowingSearch"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
                                 <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
                             </svg>Фильтр</b>
@@ -37,25 +37,25 @@
                         <h6 class="oswald"><b>{{vacancy.salary}}</b></h6>
                         <span class="tip">{{vacancy.tip}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
                     </div>
-                    <span><b>{{ vacancy.vacancyName }}</b></span>
-                    <p class="monserat">{{vacancy.text}}</p>
+                    <span><b>{{ vacancy.title }}</b></span>
+                    <p class="monserat">{{vacancy.description}}</p>
                         <div class="row pr">
                             <div class="col-lg-6 col-md-4 paragraph">
                                 <img :src="vacancy.logo" class="logo_company_in_list" :alt="vacancy.title">
                                 {{ vacancy.title }}
                             </div>
                             <div class="col-lg-3 col-md-4 paragraph">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
-                                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
-                                </svg>
-                                {{ vacancy.practice }}
-                            </div>
-                            <div class="col-lg-3 col-md-4 paragraph">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
                                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                 </svg>
-                                {{ vacancy.srok }}
+                                {{ vacancy.schedule }}
+                            </div>
+                            <div class="col-lg-3 col-md-4 paragraph">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
+                                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                                {{ vacancy.experience }}
                             </div>
                         </div>
                 </div>
@@ -109,7 +109,6 @@ export default {
             isShowing: false,
             isShowingSearch: false,
             search:'',
-            vacancies: [ ]
         }
     },
     methods: {

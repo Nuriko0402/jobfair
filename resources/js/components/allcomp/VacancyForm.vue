@@ -102,3 +102,8 @@ export default {
 
 }
 </script>
+<style scoped>
+    .w-100 {
+        font-size: .8rem;
+    }
+</style>
