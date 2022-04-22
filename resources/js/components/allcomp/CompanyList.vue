@@ -26,7 +26,7 @@
             <div class="col-lg-9 col-md-12 border-left">
             <!--конец фильтра по специализации--> 
             <!--фильтр, поиск-->
-            <company-search class="mob_none" />
+            <company-search class="mob_none"/>
             <company-search-mob @closeMe="isShowingSearch=false" v-show="isShowingSearch" />  
             <!--конец фильтра, поиска--> 
 
