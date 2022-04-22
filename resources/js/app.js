@@ -1,8 +1,10 @@
 require('./bootstrap');
 
+import Multiselect from 'vue-multiselect'
+
 window.Vue = require('vue').default;
 
-
+Vue.component('multiselect', Multiselect)
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -24,6 +26,7 @@ Vue.component('vacancy-edit', require('./components/allcomp/VacancyEdit.vue').de
 Vue.component('vacancy-response-comp', require('./components/allcomp/VacancyResponseComp.vue').default);
 Vue.component('vacancy-view', require('./components/allcomp/VacancyView.vue').default);
 Vue.component('company-information', require('./components/allcomp/CompanyInformation.vue').default);
+
 
 Vue.component('company-vacancy', require('./components/views/CompanyVacancy.vue').default);
 Vue.component('company-view', require('./components/views/CompanyView.vue').default);

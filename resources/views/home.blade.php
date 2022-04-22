@@ -7,6 +7,7 @@
         <title>Job Fair</title>
         <link type="text/css" href="/css/app.css" rel="stylesheet">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link type="text/css" href="/css/vue-multiselect.min.css" rel="stylesheet">
         @routes
         
     </head>

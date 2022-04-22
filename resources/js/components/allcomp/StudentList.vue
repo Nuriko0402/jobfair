@@ -122,19 +122,6 @@ export default {
                     lang: 'русский, казахский, корейский',
                     schedule: 'частичная занятость',
                     contact: '+7 707 221 59 91'
-                },
-                {
-                    id: 2,
-                    photo: '/images/photo.jpg',
-                    fio: 'Максат Жанат',
-                    sallary: '150 000',
-                    experience: '1 - 3 года',
-                    education: 'Высшее',
-                    about: 'lorLorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus repellat ad voluptatibus officia deserunt omnis voluptates, tenetur saepe culpa enim velit. Rem accusamus rerum dolorum minima natus laboriosam exercitationem.em',
-                    vuz: 'МОК',
-                    lang: 'русский, казахский, корейский',
-                    schedule: 'частичная занятость',
-                    contact: '+7 701 021 59 91'
                 }
             ]
         }

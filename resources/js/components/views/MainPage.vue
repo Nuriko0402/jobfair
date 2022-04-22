@@ -10,10 +10,9 @@
         </li>
       </ul>
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><StudentList/></div>
-        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><CompanyList/></div>
+        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><student-list/></div>
+        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><company-list :vacancies="vacancies"/></div>
       </div>
-
     </MainContainer>
   </div>
 </template>
@@ -23,13 +22,35 @@
 import MainContainer from '../allcomp//MainContainer.vue' //отступы для страницы
 import CompanyList from '../allcomp/CompanyList.vue' //список компании
 import StudentList from '../allcomp/StudentList.vue' //список студентов
+import axios from 'axios' //axios
 
 export default {
   name: 'HomeView',
   components: {
     MainContainer,
     CompanyList,
-    StudentList,
+    StudentList
   },
+  data(){
+    return {
+      vacancies: [],
+      isVacanciesLoading: false
+    }
+  },
+  methods: {
+    async fetchVacancies() {
+            try {
+                this.isVacanciesLoading = true;
+                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5');
+                    this.vacancies = response.data;
+                    this.isVacanciesLoading = false;
+            } catch(e){
+                alert('Ошибка')
+            } finally {}
+      }
+  },
+  mounted() {
+    this.fetchVacancies();
+  }
 }
 </script>
