@@ -1,14 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 
 // Auth::routes();
 
 Route::get('/', function () {
     return view('main');
 });
-
+Route::middleware('auth:sanctum')->get('/name', function (Request $request) {
+    return 'test';
+});
 Route::get('/enter-view', [PageController::class, 'enterPage']);
 Route::get('/company-view', [PageController::class, 'companyviewPage']);
 Route::get('/vacancy-response', [PageController::class, 'vacancyresponsePage']);
@@ -19,7 +23,8 @@ Route::get('/vacancy-view', [PageController::class, 'vacancyviewPage']);
 Route::get('/vacancy-edit', [PageController::class, 'vacancyeditPage']);
 Route::get('/company-information', [PageController::class, 'companyinformationnPage']);
 Route::get('/student-information', [PageController::class, 'studentinformationPage']);
-
+// Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+Route::get('/login', [PageController::class, 'enterPage'])->name('login');
 
 
 

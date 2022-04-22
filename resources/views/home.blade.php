@@ -6,7 +6,7 @@
 
         <title>Job Fair</title>
         <link type="text/css" href="/css/app.css" rel="stylesheet">
-    
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @routes
         
     </head>

@@ -31,6 +31,8 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                             <div class="step" v-show="step === 1">
+                                                
+                                            <!-- <input type="hidden" name="_token" :value="csrf"> -->
                                             <input v-model="company.title" type="text" placeholder="Название компании">
                                             <input v-model="company.address" type="text" placeholder="Адрес">
                                             <input v-model="company.bin" type="text" placeholder="БИН / ИИН">
@@ -90,10 +92,10 @@
                 <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><CompanyList :data="listData" />
                         <h5><b>Авторизация</b></h5>
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="Пароль"><br>
+                        <input v-model="user.email" type="text" placeholder="Email">
+                        <input v-model="user.password" type="password" placeholder="Пароль"><br>
                         <p>Забыли пароль?</p>
-                        <button class="btn but_or w-100">Войти</button>
+                        <button @click.prevent="login" type="submit" class="btn but_or w-100">Войти</button>
                     </div>
                 </div>
             </div>
@@ -108,18 +110,23 @@
 export default {
   data(){
       return {
-          step: 1,
-          company: {
-              title: 'Maksat',
-              address: 'Almaty',
-              bin: '123456', 
-              iik: '123456',
-              kbe: '123456',
-              email: 'janatmaksat@gmail.com',
-              phone: '87475629170',
-              password: '12345',
-              password_confirmation: '123456',
-          }
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            step: 1,
+            company: {
+                title: 'Maksat',
+                address: 'Almaty',
+                bin: '123456', 
+                iik: '123456',
+                kbe: '123456',
+                email: 'janatmaksat@gmail.com',
+                phone: '87475629170',
+                password: '12345',
+                password_confirmation: '123456',
+            },
+            user: {
+                email: 'janatmaksat@gmail.com',
+                password: '12345'
+            }
       }
   },
     methods:{
@@ -131,12 +138,42 @@ export default {
             this.step --;
         },
         signup() {
-            axios.post("/api/company-registration", this.company)
+            axios.post("/api/company-registration", this.company, {headers: {'X-CSRF-TOKEN': this.csrf}})
             .then(response => {
                 console.log(response)
-            }).then(error => {
-                console.log(response)
-            })
+            }).catch(error => {
+                this.errorMessage = error.message;
+                console.error("There was an error!", error);
+            });
+        },
+        login() {
+            
+            // axios.get('/sanctum/csrf-cookie').then(response => {
+                axios.post('/api/login', this.user)
+                    .then(response => {
+                        localStorage.setItem("token", response.data.success.token);
+
+                        // ПРимер запроса после
+                        const token = localStorage.getItem("token");
+                        axios.get(
+                                '/api/usersasd',
+                                {
+                                    headers: { "Content-Type": "application/json", Authorization: "Bearer " + token}
+                                }
+                            )
+                            .then(response => {
+                                console.log(response);
+                            })
+                            .catch(error => {
+                                this.errorMessage = error.message;
+                                console.error("There was an error!", error);
+                            });
+                    })
+                    .catch(error => {
+                        this.errorMessage = error.message;
+                        console.error("There was an error!", error);
+                    });
+            // })
         }
     }
 }

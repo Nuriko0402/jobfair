@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CompanyRegistrationRequest;
 use App\Models\User;
 use App\Models\Company;
@@ -14,6 +15,38 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+        if(Auth::attempt($credentials)){ 
+            $user = Auth::user();
+            // $request->session()->regenerate();
+            /*$user = Auth::user(); */
+            $success['token'] =  $user->createToken('auth.jobfair')->plainTextToken; 
+            $success['name'] =  $user->name;
+
+            /*$page = 'companyview';
+            return view('page', compact('page', 'user')); */
+
+            return response()->json(['message' => 'Вы успешно авторизовались', 'success' => $success]);
+        } 
+        else{ 
+            return response()->json(['message' => 'Логин или пароль неправильный'], 401);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        dd($request->user());
+        return response()->json([
+            'message' => 'Вы вышли из системы'
+        ], 200);
     }
 
     public function companyRegsitration(CompanyRegistrationRequest $request)
@@ -34,10 +67,13 @@ class UserController extends Controller
                 'phone' => $validated['phone'],
                 'email' => $validated['email'],
                 'user_id' => $user->id,
+                'description' => 'test',
             ]);
+
+            return response()->json(['message' => 'Вы успешно зарегистрировались']);
         } catch (QueryException $exception) {
             $errorInfo = $exception->errorInfo;
-            print_r($errorInfo);
+            return response()->json(['message' => $errorInfo]);
         }
     }
 }

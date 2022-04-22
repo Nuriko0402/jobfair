@@ -32,7 +32,7 @@ class CompanyRegistrationRequest extends FormRequest
             'iik' => ['required', 'string', 'max:255'],
             'kbe' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'unique:company', 'string', 'max:255'],
             'password' => 'required|confirmed',
             // 'password_confirm' => 'required|confirmed',
         ];
@@ -48,6 +48,7 @@ class CompanyRegistrationRequest extends FormRequest
             'kbe.required' => 'Обязательно к заполнению',
             'phone.required' => 'Обязательно к заполнению',
             'email.required' => 'Обязательно к заполнению',
+            'email.unique' => 'Данный email уже существует',
             'password.required' => 'Обязательно к заполнению',
             'password.confirmed' => 'Пароли не совпадают',
             // 'password_confirm.same' => 'Пароли не совпадают',

@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VacancyController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +17,19 @@ use App\Http\Controllers\UserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/company-registration', [UserController::class, 'companyRegsitration']);
+
+Route::get('/vacancies/{schedule?}', [VacancyController::class, 'index'])->name('vacancy.all');
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.all');
+Route::post('/company-registration', [UserController::class, 'companyRegsitration'])->name('company.register');
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
+Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
 
 
+Route::middleware('auth:sanctum')->get('/usersasd', function (Request $request) {
+    return response()->json(['name' => $request->user()->name]);
+});
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::group(['middleware' => 'auth:sanctum'], function (){
-    // 
-});
+// Auth::routes();
