@@ -6,7 +6,7 @@
 
         <title>Job Fair</title>
         <link type="text/css" href="/css/app.css" rel="stylesheet">
-    
+        <link type="text/css" href="/css/vue-multiselect.min.css" rel="stylesheet">
         @routes
         
     </head>

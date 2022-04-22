@@ -1,8 +1,9 @@
 <template>
 <div>
-    <div class="row" v-show="vacancies.length > 0">
+    <div v-show="vacancies.length > 0">
         <h4 class="oswald">Ваши вакансии</h4>
-        <div class="vacancy_list col-md-3 comp_list_box radius" v-for="vacancy in vacancies" :key="vacancy.id" @remove="$emit('remove', vacancy)">
+        <transition-group name="vacancy-list" class="row">
+            <div class="vacancy_list col-md-3 comp_list_box radius" v-for="vacancy in vacancies" :key="vacancy.id" @remove="$emit('remove', vacancy)">
             <h6 class="oswald"><b>{{ vacancy.title }}</b></h6>
                <p>{{ vacancy.description }}</p>
                    <div class="paragraph">
@@ -27,10 +28,11 @@
                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                       </svg><b>{{ vacancy.schedule }}</b>
+                       </svg><b v-for="(item, key) in vacancy.category" :key="item.name">{{ item.name }}</b>
                    </div><br/>
                    <button @click="$emit('remove', vacancy)" class="btn but_or">Удалить</button>
-        </div> 
+            </div> 
+        </transition-group>
     </div>
     <h5 v-show="vacancies.length === 0">Список вакансии пуст</h5>
 </div>    
@@ -52,4 +54,17 @@ export default {
         color: #a5a5a5;
         font-size: 1rem;
     }
+    .vacancy-list-item {
+        display: inline-block;
+        margin-right: 10px;
+        }
+        .vacancy-list-enter-active, .vacancy-list-leave-active {
+        transition: all .5s;
+        }
+        .vacancy-list-enter, .vacancy-list-leave-to /* .list-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+        transform: translateY(130px);
+        }
+
+
 </style>

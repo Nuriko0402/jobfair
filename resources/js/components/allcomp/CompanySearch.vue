@@ -25,14 +25,9 @@
             <option>от 3 до 6 лет</option>
             <option>более 6 лет</option>
         </select>
-
-        <select name="" id="" class="btn radius">
-            <option value="">Не имеет значения</option>
-            <option value="">от 100 000 KZT</option>
-            <option value="">от 250 000 KZT</option>
-            <option value="">от 500 000 KZT</option>
-        </select>
         <!--поиск-->
         <input class="input_icon" type="text" placeholder="Введите название организации" />
     </div>
 </template>
+
+<script>
