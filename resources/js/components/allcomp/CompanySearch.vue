@@ -2,7 +2,7 @@
     <div class="main_filter monserat company_search">
         <select class="btn radius">
             <option disabled value="">Тип занятости</option>
-            <option>полная занятость</option>
+            <option value="full">полная занятость</option>
             <option>частичная занятость</option>
             <option>стажировка</option>
             <option>проектная работа</option>

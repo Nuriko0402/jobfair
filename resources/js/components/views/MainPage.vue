@@ -41,8 +41,8 @@ export default {
     async fetchVacancies() {
             try {
                 this.isVacanciesLoading = true;
-                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5');
-                    this.vacancies = response.data;
+                    const response = await axios.get('http://127.0.0.1:8000/api/vacancies?_id');
+                    this.vacancies = response.data.vacancies;
                     this.isVacanciesLoading = false;
             } catch(e){
                 alert('Ошибка')

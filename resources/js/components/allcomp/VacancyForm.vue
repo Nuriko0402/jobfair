@@ -41,7 +41,7 @@
       />
       <br />
 
-      <select v-model="vacancy.tip" class="w-100" required>
+      <select v-model="vacancy.employment_type" class="w-100" required>
         <option disabled value="">Тип занятости</option>
         <option>полная занятость</option>
         <option>частичная занятость</option>
@@ -58,7 +58,7 @@
         label="name"
         track-by="code"
         :options="options"
-        :multiple="true"
+        :mulemployment_typele="true"
         :taggable="true"
         @tag="addTag"
       >
@@ -87,21 +87,21 @@ export default {
         salary: "",
         schedule: "",
         experience: "",
-        tip: "",
+        employment_type: "",
         category: ""
       },
       value: [],
       options: [
-        { name: "Дизаин", code: "dz" },
-        { name: "Архитектура", code: "arh" },
-        { name: "Строительство", code: "str" }
-        // { name: "Банк", code: "bn" },
-        // { name: "Финансы", code: "fn" },
-        // { name: "Дороги", code: "dor" },
-        // { name: "Мода", code: "md" },
-        // { name: "Продажи", code: "prod" },
-        // { name: "Менеджмент", code: "men" },
-        // { name: "Госсектор", code: "gos" }
+        { name: " Дизаин,", code: "dz" },
+        { name: " Архитектура,", code: "arh" },
+        { name: " Строительство,", code: "str" },
+        { name: " Банк,", code: "bn" },
+        { name: " Финансы,", code: "fn" },
+        { name: " Дороги,", code: "dor" },
+        { name: " Мода,", code: "md" },
+        { name: " Продажи,", code: "prod" },
+        { name: " Менеджмент,", code: "men" },
+        { name: " Госсектор,", code: "gos" }
       ],
     };
   },
@@ -118,7 +118,7 @@ export default {
         salary: "",
         schedule: "",
         experience: "",
-        tip: "",
+        employment_type: "",
         category: ""
       };
     },
