@@ -16,7 +16,6 @@ Route::middleware('auth:sanctum')->get('/name', function (Request $request) {
 Route::get('/enter-view', [PageController::class, 'enterPage']);
 Route::get('/company-view', [PageController::class, 'companyviewPage']);
 Route::get('/vacancy-response', [PageController::class, 'vacancyresponsePage']);
-Route::get('/student-feedback', [PageController::class, 'studentfeedbackPage']);
 Route::get('/student-account', [PageController::class, 'studentaccountPage']);
 Route::get('/company-vacancy', [PageController::class, 'companyvacancyPage']);
 Route::get('/category-vacancy', [PageController::class, 'categoryvacancyPage']);

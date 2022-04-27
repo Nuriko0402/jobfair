@@ -22,6 +22,8 @@
     <company-information>
 @elseif($page === 'studentinformation')
     <student-information>
+@elseif($page === 'studentfeedback')
+    <student-feedback>
 
 @endif
 @endsection
