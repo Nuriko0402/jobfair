@@ -10,7 +10,7 @@
         </li>
       </ul>
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><student-list/></div>
+        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><student-list students="students" /></div>
         <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><company-list :vacancies="vacancies"/></div>
       </div>
     </MainContainer>
@@ -19,7 +19,7 @@
 
 
 <script>
-import MainContainer from '../allcomp//MainContainer.vue' //отступы для страницы
+import MainContainer from '../allcomp/MainContainer.vue' //отступы для страницы
 import CompanyList from '../allcomp/CompanyList.vue' //список компании
 import StudentList from '../allcomp/StudentList.vue' //список студентов
 import axios from 'axios' //axios
@@ -31,26 +31,43 @@ export default {
     CompanyList,
     StudentList
   },
+  props: {
+        data: {
+            type: Array
+        }
+  },
   data(){
     return {
       vacancies: [],
+      students: [],
       isVacanciesLoading: false
     }
   },
   methods: {
-    async fetchVacancies() {
-            try {
-                this.isVacanciesLoading = true;
-                    const response = await axios.get('http://127.0.0.1:8000/api/vacancies?_id');
-                    this.vacancies = response.data.vacancies;
-                    this.isVacanciesLoading = false;
-            } catch(e){
-                alert('Ошибка')
-            } finally {}
-      }
+    async fetchVacancies(){
+      try {
+        this.isVacanciesLoading = true;
+          const response = await axios.get('http://127.0.0.1:8000/api/vacancies');
+          this.vacancies = response.data.vacancies;
+          this.isVacanciesLoading = false;
+      } catch(e){
+          alert('Ошибка')
+      } finally {}
+    },
+    // async fetchStudents(){
+    //   try {
+    //     this.isStudentsLoading = true;
+    //     const response = await axios.get('http://127.0.0.1:8000/api/vacancies')
+    //     this.students = response.data.students;
+    //     this.isStudentsLoading = false;
+    //   } catch(e){
+    //      alert ('Ошибка')
+    //   } finally {}   
+    // }
   },
   mounted() {
     this.fetchVacancies();
+    //this.fetchStudents();
   }
 }
 </script>

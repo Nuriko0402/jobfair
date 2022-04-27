@@ -4,16 +4,16 @@
             <!--фильтр по специализации-->
             <div class="col-lg-3 col-md-12">
                <div class="row oswald mob_filter">
-                    <div class="col-6" @click="isShowing = !isShowing">
-                        <b class="mob_none">Специализации</b>
+                    <div class="col-6">
+                        <b class="mob_none" @click="isShowing = !isShowing">Специализации</b>
                         <span class="desk_none"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left none" viewBox="0 0 16 16">
                                 <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>Специализации</b>
                         </span>     
                     </div>
-                    <div class="col-6" @click="isShowingSearch = !isShowingSearch">
-                        <span class="showing_search desk_none"><b>
+                    <div class="col-6">
+                        <span class="showing_search desk_none" @click="isShowingSearch = !isShowingSearch"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
                                 <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
                             </svg>Фильтр</b>
@@ -34,7 +34,7 @@
                 <br/><br/>
                 <div class="company_list" v-for="student in students" :key="student.id" @click="studentClick(student.id)">
                     <div class="d-flex">
-                        <h6 class="oswald"><b>{{student.sallary}}</b></h6>
+                        <h6 class="oswald"><b>{{student.salary}}</b></h6>
                         <span class="tip">{{student.tip}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
                     </div>
                     <span><b>{{ student.schedule }}</b></span>
@@ -89,19 +89,18 @@ import CompanyFilter from './CompanyFilter.vue'
 import CompanyFilterMob from './CompanyFilterMob.vue'
 import CompanySearch from './CompanySearch.vue'
 import CompanySearchMob from './CompanySearchMob.vue'
-
+import axios from 'axios'
 export default {
-  components: { 
+    components: {
       MainContainer,
       CompanyFilter,
       CompanyFilterMob,
       CompanySearch,
       CompanySearchMob,
-      },
+    },
     props: {
         data: {
-            type: Array,
-            default: () => [],
+            type: Array
         }
     },
     data(){
@@ -109,44 +108,51 @@ export default {
             isShowing: false,
             isShowingSearch: false,
             search:'',
-            students: [ 
-                {
-                    id: 1,
-                    photo: '/images/photo.jpg',
-                    fio: 'Отыншиева Айнур Мусаевна',
-                    sallary: '550 000',
-                    experience: '1 - 3 года',
-                    education: 'Высшее',
-                    about: 'lorLorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus repellat ad voluptatibus officia deserunt omnis voluptates, tenetur saepe culpa enim velit. Rem accusamus rerum dolorum minima natus laboriosam exercitationem.em',
-                    vuz: 'МОК',
-                    lang: 'русский, казахский, корейский',
-                    schedule: 'частичная занятость',
-                    contact: '+7 707 221 59 91'
-                }
-            ]
+            students: [],
+            isStudentsLoading: false
+            
         }
     },
-    methods: {
+        methods: {
         studentClick: function(ID){
             console.log(ID);
             window.location.href='/student-account?id='+ID;
+        },
+        // closeModal(){
+        //     this.isShowing = false;
+        // },
+        // createStudent(student){
+        //     this.students.push(student);
+        //     this.title = '';
+        //     this.description = '';
+        //     this.salary = '';
+        //     this.schedule = '';
+        //     this.experience = '';
+        //     this.employment_type = '';
+        //     this.closeModal();
+        // },
+        // removeStudent(student) {
+        //     this.students = this.students.filter(p => p.id !== student.id)
+        // },
+        async fetchStudents() {
+            try {
+                this.isStudentsLoading = true;
+                    const response = await axios.get('http://127.0.0.1:8000/api/vacancies');
+                    this.students = response.data.students;
+                    this.isStudentsLoading = false;
+            } catch(e){
+                alert('Ошибка')
+            } finally {}
         }
+    },
+    mounted() {
+        this.fetchStudents();
     }
 }
-    // computed:{
-    //     filteredCompnylist: function() {
-    //         return this.data.filter((item) => {
-    //             return item.title.match(this.search);
-    //         })
-    //     }
-    // }
 </script>
-<style>
-    .logo_company_in_list {
-        width: 120px;
-    }
-    .photo_student_in_list {
-        width: 10%;
-        border-radius: 50%;
+<style scoped>
+    .w50 {
+        width: 48%;
+        margin: 0 1%;
     }
 </style>

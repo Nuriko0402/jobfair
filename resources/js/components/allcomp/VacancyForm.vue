@@ -92,16 +92,16 @@ export default {
       },
       value: [],
       options: [
-        { name: " Дизаин,", code: "dz" },
-        { name: " Архитектура,", code: "arh" },
-        { name: " Строительство,", code: "str" },
-        { name: " Банк,", code: "bn" },
-        { name: " Финансы,", code: "fn" },
-        { name: " Дороги,", code: "dor" },
-        { name: " Мода,", code: "md" },
-        { name: " Продажи,", code: "prod" },
-        { name: " Менеджмент,", code: "men" },
-        { name: " Госсектор,", code: "gos" }
+        { name: "Дизаин", code: "dz" },
+        { name: "Архитектура", code: "arh" },
+        { name: "Строительство", code: "str" },
+        { name: "Банк", code: "bn" },
+        { name: "Финансы", code: "fn" },
+        { name: "Дороги", code: "dor" },
+        { name: "Мода", code: "md" },
+        { name: "Продажи", code: "prod" },
+        { name: "Менеджмент", code: "men" },
+        { name: "Госсектор", code: "gos" }
       ],
     };
   },
@@ -122,13 +122,13 @@ export default {
         category: ""
       };
     },
-    addTag(newTag) {
+    addTag (newTag) {
       const tag = {
         name: newTag,
-        code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000),
-      };
-      this.options.push(tag);
-      this.value.push(tag);
+        code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+      }
+      this.options.push(tag)
+      this.value.push(tag)
     },
   },
 };

@@ -26,8 +26,8 @@
                    </div>
                    <div class="paragraph">
                        <b v-for="(item) in vacancy.category" :key="item.name">{{ item.name }}</b>
-                   </div>
-                   <br/>
+                        <pre class="language-json"><code>{{ vacancy.category  }}</code></pre>
+                   </div><br/>
                    <button @click="$emit('remove', vacancy)" class="btn but_or">Удалить</button>
             </div> 
         </transition-group>
