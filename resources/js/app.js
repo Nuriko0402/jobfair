@@ -24,6 +24,7 @@ Vue.component('student-information', require('./components/allcomp/StudentInform
 Vue.component('student-inform-edit', require('./components/allcomp/StudentInformEdit.vue').default);
 Vue.component('vacancy-edit', require('./components/allcomp/VacancyEdit.vue').default);
 Vue.component('vacancy-response-comp', require('./components/allcomp/VacancyResponseComp.vue').default);
+Vue.component('student-feedback', require('./components/allcomp/StudentFeedback.vue').default);
 Vue.component('vacancy-view', require('./components/allcomp/VacancyView.vue').default);
 Vue.component('company-information', require('./components/allcomp/CompanyInformation.vue').default);
 

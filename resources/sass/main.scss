@@ -293,16 +293,12 @@ b {
     color: $grey;
 }
 /*-------------------------------------response_list*/
-.response_list {
-    background-color: #F7F7F7;
-
-}
 .response_list tr {
     border-bottom: 1px solid #888888;
 }
 .response_list tr th, .response_list tr td {
-    padding: 1.5%;
-    width: 16%;
+    padding: .5%;
+    width: 14.2%;
 }
 .response_list tr th {
     font-weight: 500;

@@ -1,21 +1,56 @@
 <template>
     <MainContainer>
-        <vacancy-response-comp :data="students"/>
+        <vacancy-response-comp :vacancies="vacancies"/>
+        
     </MainContainer>    
 </template>
 
 <script>
 import MainContainer from '../allcomp/MainContainer.vue'
 import VacancyResponseComp from '../allcomp/VacancyResponseComp.vue'
+import axios from 'axios' //axios
 export default {
     components: {
         MainContainer,
         VacancyResponseComp
     },
-    data() {
-        return {
-            students: students
+    props: {
+        data: {
+            type: Array
         }
+    },
+    data(){
+        return {
+        vacancies: [],
+        students: [],
+        isVacanciesLoading: false
+        }
+    },
+    methods: {
+        async fetchVacancies(){
+        try {
+            this.isVacanciesLoading = true;
+            const response = await axios.get('http://127.0.0.1:8000/api/vacancies');
+            this.vacancies = response.data.vacancies;
+            this.isVacanciesLoading = false;
+        } catch(e){
+            alert('Ошибка')
+        } finally {}
+        },
+        // async fetchStudents(){
+        //   try {
+        //     this.isStudentsLoading = true;
+        //     const response = await axios.get('http://127.0.0.1:8000/api/vacancies')
+        //     this.students = response.data.students;
+        //     this.isStudentsLoading = false;
+        //   } catch(e){
+        //      alert ('Ошибка')
+        //   } finally {}   
+        // }
+    },
+    mounted() {
+        this.fetchVacancies();
+        //this.fetchStudents();
     }
 }
 </script>
