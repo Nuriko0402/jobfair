@@ -14,7 +14,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
                                         <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
                                         <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
-                                    </svg>{{ student.sallary }}
+                                    </svg>{{ student.salary }}
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -53,7 +53,7 @@
                 {{student.specialization}}
             </p>
             <p><b>Желаемый размер зарплаты:</b><br />
-                {{student.sallary}}
+                {{student.salary}}
             </p>
             <p><b>Опыт работы:</b><br />
                 {{student.experience}}
@@ -69,26 +69,10 @@
 
 <script>
 export default {
-    data(){
-        return {
-            search:'',
-            students: [
-                {
-                    id: 1,
-                    photo: 'images/photo.jpg',
-                    fio: 'Отыншиева Айнур Мусаевна',
-                    specialization: 'specialization',
-                    sallary: '550 000',
-                    experience: '1 - 3 года',
-                    education: 'Высшее',
-                    about: 'lorLorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus repellat ad voluptatibus officia deserunt omnis voluptates, tenetur saepe culpa enim velit. Rem accusamus rerum dolorum minima natus laboriosam exercitationem.em',
-                    vuz: 'МОК',
-                    lang: 'русский, казахский, корейский',
-                    schedule: 'частичная занятость',
-                    contact: '+7 707 221 59 91'
-                }
-            ],
-            isShowing: false
+    props: {
+        students: {
+            type: Array,
+            required: true
         }
     }
 

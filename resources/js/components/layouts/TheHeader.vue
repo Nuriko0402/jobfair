@@ -16,7 +16,7 @@
               <li class="nav-item">
                 <a href ="/" class="nav-link active" aria-current="page">ГЛАВНАЯ</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href ="/top-companies" class="nav-link active" aria-current="page">ТОП 5 КОМПАНИЙ</a>
               </li>
               <li class="nav-item">
@@ -24,7 +24,7 @@
               </li>
               <li class="nav-item">
                 <a href ="/vacancy-response" class="nav-link active" aria-current="page">ОТКЛИКИ</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href ="/company-view" class="nav-link active" aria-current="page">КОМПАНИЯ</a>
               </li>

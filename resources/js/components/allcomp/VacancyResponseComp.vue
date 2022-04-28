@@ -16,7 +16,7 @@
                 <td class="monserat">{{ vacancy.schedule }}</td>
                 <td class="monserat">{{ vacancy.employment_type }}</td>
                 <td>48 <span class="or">(3 новых)</span></td>
-                <td><a class="btn but_or" :href="`tel:${vacancy.id}`">Посмотреть заявки</a></td>
+                <td><a class="btn but_or" href="/student-feedback">Посмотреть заявки</a></td>
             </tr> 
         </table>
     </div>

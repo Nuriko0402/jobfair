@@ -4,21 +4,28 @@
         <div>
             <table class="response_list">
                 <tr>
-                    <th class="oswald">Вакансия</th>
-                    <th class="oswald">Предлагаемая зарплата</th>
+                    <th class="oswald">ФИО</th>
+                    <th class="oswald">Желаемая зарплата</th>
                     <th class="oswald">Опыт работы</th>
-                    <th class="oswald">График работы</th>
-                    <th class="oswald">Тип занятости</th>
-                    <th class="oswald">Заявки</th>
+                    <th class="oswald">Образование</th>
+                    <th class="oswald">ОП / Специализация:</th>
+                    <th class="oswald">Статус</th>
                 </tr>
-                <tr v-for="vacancy in vacancies" :key="vacancy.id">
-                    <td class="monserat"><b class="bold">{{ vacancy.title }}</b></td>
-                    <td class="monserat">{{ vacancy.salary }}</td>
-                    <td class="monserat">{{ vacancy.experience }}</td>
-                    <td class="monserat">{{ vacancy.schedule }}</td>
-                    <td class="monserat">{{ vacancy.employment_type }}</td>
-                    <td>48 <span class="or">(3 новых)</span></td>
-                    <td><a class="btn but_or" :href="`tel:${vacancy.id}`">Посмотреть заявки</a></td>
+                <tr v-for="student in students" :key="student.id">
+                    <td class="monserat"><b class="bold">{{ student.fio }}</b></td>
+                    <td class="monserat">{{ student.salary }}</td>
+                    <td class="monserat">{{ student.experience }}</td>
+                    <td class="monserat">{{ student.education }}</td>
+                    <td class="monserat">{{ student.specialization }}</td>
+                    <td>
+                        <select>
+                            <option value="disabled">не выбрано</option>
+                            <option value="">Собеседование</option>
+                            <option value="">Отказано</option>
+                            <option value="">На рассмотрении</option>
+                        </select>
+                    </td>
+                    <td><a class="btn but_or" :href="`tel:${student.contact}`">{{student.contact}}</a></td>
                 </tr> 
             </table>
     </div>
@@ -33,43 +40,31 @@ export default {
         MainContainer
     },
     props: {
-        vacancies: {
+        students: {
             type: Array,
             required: true
         }
     },
     data(){
         return {
-        vacancies: [],
         students: [],
         isVacanciesLoading: false
         }
     },
     methods: {
-        async fetchVacancies(){
-        try {
-            this.isVacanciesLoading = true;
-            const response = await axios.get('http://127.0.0.1:8000/api/vacancies');
-            this.vacancies = response.data.vacancies;
-            this.isVacanciesLoading = false;
-        } catch(e){
-            alert('Ошибка')
-        } finally {}
-        },
-        // async fetchStudents(){
-        //   try {
-        //     this.isStudentsLoading = true;
-        //     const response = await axios.get('http://127.0.0.1:8000/api/vacancies')
-        //     this.students = response.data.students;
-        //     this.isStudentsLoading = false;
-        //   } catch(e){
-        //      alert ('Ошибка')
-        //   } finally {}   
-        // }
+        async fetchStudents(){
+            try {
+                this.isStudentsLoading = true;
+                const response = await axios.get('http://127.0.0.1:8000/api/students');
+                this.students = response.data.students;
+                this.isStudentsLoading = false;
+            } catch(e){
+                alert('Ошибка')
+            } finally {}
+        }
     },
     mounted() {
-        this.fetchVacancies();
-        //this.fetchStudents();
+        this.fetchStudents();
     }
 }
 </script>
