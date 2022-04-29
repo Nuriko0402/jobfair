@@ -17,8 +17,14 @@ use App\Http\Controllers\CategoryController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Route::get('/vacancy-show/{vacancy_id}', [VacancyController::class, 'show'])->name('vacancy.show');
 
-Route::get('/vacancies/{schedule?}', [VacancyController::class, 'index'])->name('vacancy.all');
+Route::get('/vacancies', [VacancyController::class, 'index'])->name('vacancy.all');
+Route::get('/vacancies/{id}', [VacancyController::class, 'show'])->name('vacancy.show');
+Route::post('/vacancies', [VacancyController::class, 'store'])->name('vacancy.store');
+Route::put('/vacancies/{id}', [VacancyController::class, 'update'])->name('vacancy.update');
+Route::delete('/vacancies/{id}', [VacancyController::class, 'delete'])->name('vacancy.delete');
+
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.all');
 Route::post('/company-registration', [UserController::class, 'companyRegsitration'])->name('company.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');

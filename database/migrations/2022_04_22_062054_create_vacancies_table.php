@@ -18,10 +18,11 @@ class CreateVacanciesTable extends Migration
             $table->string('title');
             $table->string('experience');
             $table->string('schedule');
-            $table->string('salary');
+            $table->integer('salary');
             $table->string('employment_type');
             $table->text('description');
             $table->unsignedBigInteger('company_id');
+            $table->integer('status')->default(0);
 
             $table->foreign('company_id')
                 ->references('id')
