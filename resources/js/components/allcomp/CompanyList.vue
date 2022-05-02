@@ -26,13 +26,62 @@
             <div class="col-lg-9 col-md-12 border-left">
             <!--конец фильтра по специализации--> 
             <!--фильтр, поиск-->
-            <company-search class="mob_none"/>
+            <!-- <company-search class="mob_none"/> -->
+
+
+
+            <div class="main_filter monserat company_search row">
+                <div class="col-lg-3">
+                    <label for="">Тип занятости</label><br />
+                    <select class="btn radius" v-model="selectType">
+                        <option 
+                            v-for="employment_type in employment_types" 
+                            :key="employment_type.id" 
+                            :value="employment_type.id">
+                            {{ employment_type.employment_type }}
+                        </option>
+                </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="">График работы</label><br />    
+                    <select class="btn radius" v-model="selectShedule">
+                        <option 
+                            v-for="schedule in schedules" 
+                            :key="schedule.id" 
+                            :value="schedule.schedule">
+                            {{ schedule.schedule }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="">Опыт работы</label><br />
+                    <select class="btn radius" v-model="selectExperience">
+                        <option 
+                            v-for="experience in experiences" 
+                            :key="experience.id"
+                            :value="experience.id">
+                            {{  experience.experience }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-lg-3"> 
+                    <br />
+                    <button @click="clear" class="but_or btn">Сбросить фильтры</button>
+                </div>    
+            </div>
+
+
+
+
             <company-search-mob @closeMe="isShowingSearch=false" v-show="isShowingSearch" />  
             <!--конец фильтра, поиска--> 
-
+                <!--поиск-->
+                <input class="input_icon" type="text" placeholder="Введите должность" v-model.trim="inputSearch" />
                 <!--список rомпании-->
                 <br/><br/>
-                <div class="company_list" v-for="vacancy in vacancies" :key="vacancy.id" @click="companyClick(vacancy.id)">
+                <div class="company_list" v-for="vacancy in filteredVacancies" :key="vacancy.id" @click="companyClick(vacancy.id)">
                     <div class="d-flex">
                         <h6 class="oswald"><b>{{vacancy.salary}}</b></h6>
                         <span class="employment_type">{{vacancy.employment_type}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
@@ -108,9 +157,35 @@ export default {
     },
     data() {
         return {
+            employment_types: [
+                { id: 1, employment_type: 'не имеет значения' },
+                { id: 2, employment_type: 'полная занятость' },
+                { id: 3, employment_type: 'частичная занятость' },
+                { id: 4, employment_type: 'стажировка'},
+                { id: 5, employment_type: 'проектная работа'},
+                { id: 6, employment_type: 'волонтерство'},
+        
+            ],
+            schedules: [
+                { id: 1, schedule: 'не имеет значения' },
+                { id: 2, schedule: 'полный день' },
+                { id: 3, schedule: 'сменный график' },
+                { id: 4, schedule: 'удаленная работа' },
+                { id: 5, schedule: 'гибкий график' }
+            ],
+            experiences: [
+                { id: 1, experience: 'не имеет значения' },
+                { id: 2, experience: 'от 1 года до 3 лет' },
+                { id: 3, experience: 'нет опыта' },
+                { id: 4, experience: 'от 3 до 6 лет' },
+                { id: 5, experience: 'более 6 лет}' }
+            ],
+            inputSearch: '',
+            selectType: 0,
+            selectShedule: 0,
+            selectExperience: 0,
             isShowing: false,
             isShowingSearch: false,
-            search:'',
         }
     },
     methods: {
@@ -118,9 +193,45 @@ export default {
             console.log(ID);
             window.location.href="/company-vacancy?id="+ID;
             // this.$router.push({name: 'CompanyVacancy', params: {id: ID}})
-        }
+        },
+        clear: function() {
+            this.inputSearch = '';
+            this.selectType = 0;
+            this.selectShedule = 0;
+            this.selectExperience = 0;
     }
+    },
+    computed: {
+        filteredVacancies: function() {
+            return this.vacancies
+                // Фильтруем по полю поиска
+                .filter(vacancy => {
+                    return this.inputSearch == '' || vacancy.title.toLowerCase().indexOf(this.inputSearch.toLowerCase()) !== -1;
+                })
+                // Фильтруем по типу
+                .filter(vacancy => {
+                    return this.selectType == 0 || vacancy.id == this.selectType;
+                })
+                // Фильтруем по графику работы
+                .filter(vacancy => {
+                    return this.selectShedule == 0 || vacancy.schedule == this.selectShedule;
+                })
+                // Фильтруем по Опыту работы
+                .filter(vacancy => {
+                    return this.selectExperience == 0 || vacancy.experience == this.selectExperience;
+                })
 
+        }
+    },
+    mounted: function() {
+    axios
+        .get('http://127.0.0.1:8000/api/vacancies?schedule')
+        .then(response => {
+            this.vacancies = response.data.data.vacancies;
+            this.schedules = response.data.data.schedules;
+        });
+},
+    
 }
 </script>
 <style scoped>

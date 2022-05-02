@@ -4,19 +4,19 @@
         <div>
             <table class="response_list">
                 <tr>
-                    <th class="oswald">ФИО</th>
-                    <th class="oswald">Желаемая зарплата</th>
+                    <th class="oswald">Компания</th>
+                    <th class="oswald">Вакансия</th>
+                    <th class="oswald">Предлагаемая зарплата</th>
                     <th class="oswald">Опыт работы</th>
-                    <th class="oswald">Образование</th>
-                    <th class="oswald">ОП / Специализация:</th>
+                    <th class="oswald">Тип занятости</th>
                     <th class="oswald">Статус</th>
                 </tr>
-                <tr v-for="student in students" :key="student.id">
-                    <td class="monserat"><b class="bold">{{ student.fio }}</b></td>
-                    <td class="monserat">{{ student.salary }}</td>
-                    <td class="monserat">{{ student.experience }}</td>
-                    <td class="monserat">{{ student.education }}</td>
-                    <td class="monserat">{{ student.specialization }}</td>
+                <tr v-for="vacancy in vacancies" :key="vacancy.id">
+                    <td class="monserat"><b class="bold">{{ vacancy.companyName }}</b></td>
+                    <td class="monserat">{{ vacancy.title }}</td>
+                    <td class="monserat">{{ vacancy.salary }}</td>
+                    <td class="monserat">{{ vacancy.experience }}</td>
+                    <td class="monserat">{{ vacancy.employment_type }}</td>
                     <td>
                         <select class="monserat pd-2">
                             <option value="disabled">не выбрано</option>
@@ -25,7 +25,7 @@
                             <option value="">На рассмотрении</option>
                         </select>
                     </td>
-                    <td><a class="btn but_or" :href="`tel:${student.contact}`">{{student.contact}}</a></td>
+                    <td><a class="btn but_or" :href="`tel:${vacancy.contact}`">{{vacancy.contact}}</a></td>
                 </tr> 
             </table>
     </div>
@@ -40,31 +40,31 @@ export default {
         MainContainer
     },
     props: {
-        students: {
+        vacancies: {
             type: Array,
             required: true
         }
     },
     data(){
         return {
-        students: [],
+        vacancies: [],
         isVacanciesLoading: false
         }
     },
     methods: {
-        async fetchStudents(){
+        async fetchVacancies(){
             try {
-                this.isStudentsLoading = true;
-                const response = await axios.get('http://127.0.0.1:8000/api/students');
-                this.students = response.data.students;
-                this.isStudentsLoading = false;
+                this.isVacanciesLoading = true;
+                const response = await axios.get('http://127.0.0.1:8000/api/vacancies?schedule=');
+                this.vacancies = response.data.vacancies;
+                this.isVacanciesLoading = false;
             } catch(e){
                 alert('Ошибка')
             } finally {}
         }
     },
     mounted() {
-        this.fetchStudents();
+        this.fetchVacancies();
     }
 }
 </script>
@@ -77,5 +77,8 @@ export default {
     select:focus-visible {
         border: 1px solid #fff;
         background: #fff;
+    }
+    .but_or {
+        min-width: 100%;
     }
 </style>

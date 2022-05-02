@@ -51,5 +51,9 @@ class PageController extends Controller
         $page = 'studentfeedback';
         return view('page', compact('page'));
     }
+    public function companyfeedbackPage() {
+        $page = 'companyfeedback';
+        return view('page', compact('page'));
+    }
     
 }

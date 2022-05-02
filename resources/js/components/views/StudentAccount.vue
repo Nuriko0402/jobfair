@@ -3,6 +3,7 @@
         <student-information />
         <br /><br />
         <all-vacancy />
+        
     </MainContainer>    
 </template>
 
@@ -36,7 +37,7 @@ export default ({
         async fetchStudents(){
           try {
             this.isStudentsLoading = true;
-            const response = await axios.get('http://127.0.0.1:8000/api/students')
+            const response = await axios.get('http://127.0.0.1:8000/api/vacancies')
             this.students = response.data.students;
             this.isStudentsLoading = false;
           } catch(e){

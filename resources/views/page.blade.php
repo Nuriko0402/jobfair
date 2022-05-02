@@ -24,6 +24,7 @@
     <student-information>
 @elseif($page === 'studentfeedback')
     <student-feedback>
-
+@elseif($page === 'companyfeedback')
+    <company-feedback>
 @endif
 @endsection
