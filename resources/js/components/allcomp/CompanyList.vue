@@ -33,7 +33,8 @@
             <div class="main_filter monserat company_search row">
                 <div class="col-lg-3">
                     <label for="">Тип занятости</label><br />
-                    <select class="btn radius" v-model="selectType">
+                    <select class="btn radius" v-model="selectType" @change="typeChange">
+                        <option value="0" selected="true">не имеет значения</option>
                         <option 
                             v-for="employment_type in employment_types" 
                             :key="employment_type.id" 
@@ -45,7 +46,8 @@
 
                 <div class="col-lg-3">
                     <label for="">График работы</label><br />    
-                    <select class="btn radius" v-model="selectShedule">
+                    <select class="btn radius" v-model="selectSchedule" @change="scheduleChange">
+                        <option value="0" selected="true">не имеет значения</option>
                         <option 
                             v-for="schedule in schedules" 
                             :key="schedule.id" 
@@ -57,7 +59,8 @@
 
                 <div class="col-lg-3">
                     <label for="">Опыт работы</label><br />
-                    <select class="btn radius" v-model="selectExperience">
+                    <select class="btn radius" v-model="selectExperience" @change="experienceChange">
+                        <option value="0" selected="true">не имеет значения</option>
                         <option 
                             v-for="experience in experiences" 
                             :key="experience.id"
@@ -66,14 +69,12 @@
                         </option>
                     </select>
                 </div>
+
                 <div class="col-lg-3"> 
                     <br />
                     <button @click="clear" class="but_or btn">Сбросить фильтры</button>
                 </div>    
             </div>
-
-
-
 
             <company-search-mob @closeMe="isShowingSearch=false" v-show="isShowingSearch" />  
             <!--конец фильтра, поиска--> 
@@ -84,7 +85,7 @@
                 <div class="company_list" v-for="vacancy in filteredVacancies" :key="vacancy.id" @click="companyClick(vacancy.id)">
                     <div class="d-flex">
                         <h6 class="oswald"><b>{{vacancy.salary}}</b></h6>
-                        <span class="employment_type">{{vacancy.employment_type}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
+                        <span class="employment_type">{{translateSch(vacancy.schedule)}}<br />{{new Date().getDate()+'.'+ (new Date().getMonth()+1)+'.'+ new Date().getFullYear()}}</span>
                     </div>
                     <span><b class="bold">{{ vacancy.title }}</b></span>
                     <p class="monserat">{{vacancy.description}}</p>
@@ -98,12 +99,14 @@
                                     <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
                                     <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
                                     <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
-                                    </svg><b>{{ vacancy.employment_type }}</b>
+                                </svg><b>{{translateEt(vacancy.employment_type)}}</b>
+                                
+                                    
                             </div>
                             <div class="col-lg-3 col-md-4 paragraph">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
                                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
-                                </svg><b>{{ vacancy.experience }}</b>
+                                </svg><b>{{translateEx(vacancy.experience)}}</b>
                             </div>
                             <div class="col-lg-3 col-md-4 paragraph">
                                 <b v-for="(item) in vacancy.category" :key="item.name">{{ item.name }}</b>
@@ -149,36 +152,29 @@ export default {
       CompanySearchMob,
 
     },
-    props: {
-        vacancies: {
-            type: '',
-            required: true
-        }
-    },
     data() {
         return {
+            vacancies: [],
             employment_types: [
-                { id: 1, employment_type: 'не имеет значения' },
-                { id: 2, employment_type: 'полная занятость' },
-                { id: 3, employment_type: 'частичная занятость' },
-                { id: 4, employment_type: 'стажировка'},
-                { id: 5, employment_type: 'проектная работа'},
-                { id: 6, employment_type: 'волонтерство'},
+                { id: 'full', employment_type: 'полная занятость' },
+                { id: 'part', employment_type: 'частичная занятость' },
+                { id: 'probation', employment_type: 'стажировка'},
+                { id: 'project', employment_type: 'проектная работа'},
+                { id: 'volunteer', employment_type: 'волонтерство'},
         
             ],
             schedules: [
-                { id: 1, schedule: 'не имеет значения' },
-                { id: 2, schedule: 'полный день' },
-                { id: 3, schedule: 'сменный график' },
-                { id: 4, schedule: 'удаленная работа' },
-                { id: 5, schedule: 'гибкий график' }
+                { id: 'fullDay', schedule: 'полный день' },
+                { id: 'shift', schedule: 'сменный график' },
+                { id: 'flyInFlyOut', schedule: 'вахтовый метод' },
+                { id: 'remote', schedule: 'удаленная работа' },
+                { id: 'flexible', schedule: 'гибкий график' }
             ],
             experiences: [
-                { id: 1, experience: 'не имеет значения' },
-                { id: 2, experience: 'от 1 года до 3 лет' },
-                { id: 3, experience: 'нет опыта' },
-                { id: 4, experience: 'от 3 до 6 лет' },
-                { id: 5, experience: 'более 6 лет}' }
+                { id: 'between1And3', experience: 'от 1 года до 3 лет' },
+                { id: 'noExperience', experience: 'нет опыта' },
+                { id: 'between3And6', experience: 'от 3 до 6 лет' },
+                { id: 'moreThan6', experience: 'более 6 лет}' }
             ],
             inputSearch: '',
             selectType: 0,
@@ -189,6 +185,16 @@ export default {
         }
     },
     methods: {
+        async fetchVacancies(){
+            try {
+                this.isVacanciesLoading = true;
+                const response = await axios.get('http://127.0.0.1:8000/api/vacancies/');
+                this.vacancies = response.data.vacancies;
+                this.isVacanciesLoading = false;
+            } catch(e){
+                alert('Ошибка')
+                } finally {}
+        },
         companyClick: function(ID){
             console.log(ID);
             window.location.href="/company-vacancy?id="+ID;
@@ -197,9 +203,61 @@ export default {
         clear: function() {
             this.inputSearch = '';
             this.selectType = 0;
-            this.selectShedule = 0;
+            this.selectSchedule = 0;
             this.selectExperience = 0;
-    }
+        },
+        typeChange() {
+            axios
+                //фильтр по типу занятости
+                .get('http://127.0.0.1:8000/api/vacancies?type=' + this.selectType)
+                .then(response => {
+                    return this.vacancies = response.data.vacancies;
+                });
+        },    
+        scheduleChange() {
+            axios
+                //фильтр по графику работы
+                .get('http://127.0.0.1:8000/api/vacancies?schedule=' + this.selectSchedule)
+                .then(response => {
+                    return this.vacancies = response.data.vacancies;
+                });
+        },
+        experienceChange() {
+            axios
+                //фильтр по опыту работы
+                .get('http://127.0.0.1:8000/api/vacancies?experience=' + this.selectExperience)
+                .then(response => {
+                    return this.vacancies = response.data.vacancies;
+                });
+        },
+
+        translateEt(text) {
+            switch(text) {
+                case "full": return 'полная занятость';
+                case "part": return 'частичная занятость';
+                case "probation": return 'стажировка';
+                case "project": return 'проектная работа';
+                case "volunteer": return 'волонтерство';
+                case "between3And6": return 'волонтерство';
+            }
+        },
+        translateSch(text) {
+            switch(text) {
+                case "fullDay": return 'полный день';
+                case "shift": return 'сменный график';
+                case "flyInFlyOut": return 'вахтовый метод';
+                case "remote": return 'удаленная работа';
+                case "flexible": return 'гибкий график';
+            }
+        },   
+        translateEx(text) {
+            switch(text) {
+                case "between1And3": return 'от 1 года до 3 лет';
+                case "noExperience": return 'нет опыта';
+                case "between3And6": return 'от 3 до 6 лет';
+                case "moreThan6": return 'более 6 лет';
+            }
+        }    
     },
     computed: {
         filteredVacancies: function() {
@@ -208,29 +266,11 @@ export default {
                 .filter(vacancy => {
                     return this.inputSearch == '' || vacancy.title.toLowerCase().indexOf(this.inputSearch.toLowerCase()) !== -1;
                 })
-                // Фильтруем по типу
-                .filter(vacancy => {
-                    return this.selectType == 0 || vacancy.id == this.selectType;
-                })
-                // Фильтруем по графику работы
-                .filter(vacancy => {
-                    return this.selectShedule == 0 || vacancy.schedule == this.selectShedule;
-                })
-                // Фильтруем по Опыту работы
-                .filter(vacancy => {
-                    return this.selectExperience == 0 || vacancy.experience == this.selectExperience;
-                })
-
-        }
+        } 
     },
     mounted: function() {
-    axios
-        .get('http://127.0.0.1:8000/api/vacancies?schedule')
-        .then(response => {
-            this.vacancies = response.data.data.vacancies;
-            this.schedules = response.data.data.schedules;
-        });
-},
+        this.fetchVacancies();
+    },
     
 }
 </script>
