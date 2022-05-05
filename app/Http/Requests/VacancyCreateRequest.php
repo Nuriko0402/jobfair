@@ -13,7 +13,7 @@ class VacancyCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,11 +27,25 @@ class VacancyCreateRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'string', 'max:255'],
             'schedule' => ['required', 'string', 'max:255'],
-            'salary' => ['required', 'string', 'max:255'],
+            'salary' => ['required', 'digits', 'max:8'],
             'employment_type' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'company_id' => ['required', 'unique:company', 'string', 'max:255'],
+            'description' => ['required', 'text'],
+            'company_id' => ['required', 'integer'],
             // 'password_confirm' => 'required|confirmed',
+        ];
+    }
+
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Обязательно к заполнению',
+            'experience.required' => 'Обязательно к заполнению',
+            'schedule.required' => 'Обязательно к заполнению',
+            'salary.required' => 'Обязательно к заполнению',
+            'employment_type.required' => 'Обязательно к заполнению',
+            'description.required' => 'Обязательно к заполнению',
+            'company_id.required' => 'Обязательно к заполнению',
         ];
     }
 }

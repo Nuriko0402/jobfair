@@ -22,7 +22,7 @@ use App\Http\Controllers\CategoryController;
 Route::get('/vacancies', [VacancyController::class, 'index'])->name('vacancy.all');
 Route::get('/vacancies/{id}', [VacancyController::class, 'show'])->name('vacancy.show');
 Route::post('/vacancies', [VacancyController::class, 'store'])->name('vacancy.store');
-Route::put('/vacancies/{id}', [VacancyController::class, 'update'])->name('vacancy.update');
+Route::put('/vacancies/{vacancy}', 'VacancyController@update')->name('vacancy.update');
 Route::delete('/vacancies/{id}', [VacancyController::class, 'delete'])->name('vacancy.delete');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.all');

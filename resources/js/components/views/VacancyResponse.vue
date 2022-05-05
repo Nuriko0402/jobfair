@@ -1,8 +1,8 @@
 <template>
     <MainContainer>
         <vacancy-response-comp :vacancies="vacancies"/>
-        
-    </MainContainer>    
+
+    </MainContainer>
 </template>
 
 <script>
@@ -27,7 +27,7 @@ export default {
         }
     },
     methods: {
-        async fetchVacancies(){
+        /*async fetchVacancies(){
         try {
             this.isVacanciesLoading = true;
             const response = await axios.get('http://127.0.0.1:8000/api/vacancies');
@@ -36,7 +36,24 @@ export default {
         } catch(e){
             alert('Ошибка')
         } finally {}
-        },
+        }, */
+
+        testFunction() {
+            axios.put(
+                    '/api/vacancies/1',
+                    {
+                        "title": "Эксперт по пожарной безопасности 2",
+                        "description": "Текст изменен",
+                        "company_id": 1
+                    },
+                    {headers: { "Content-Type": "application/json"}
+                })
+                .then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(response);
+                })
+        }
         // async fetchStudents(){
         //   try {
         //     this.isStudentsLoading = true;
@@ -45,12 +62,13 @@ export default {
         //     this.isStudentsLoading = false;
         //   } catch(e){
         //      alert ('Ошибка')
-        //   } finally {}   
+        //   } finally {}
         // }
     },
     mounted() {
-        this.fetchVacancies();
+        // this.fetchVacancies();
         //this.fetchStudents();
+        this.testFunction();
     }
 }
 </script>
