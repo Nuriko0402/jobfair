@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,13 @@ Route::post('/vacancies', [VacancyController::class, 'store'])->name('vacancy.st
 Route::put('/vacancies/{vacancy}', 'VacancyController@update')->name('vacancy.update');
 Route::delete('/vacancies/{id}', [VacancyController::class, 'delete'])->name('vacancy.delete');
 
+Route::post('/application-add', [CandidateController::class, 'addApplication'])->name('application.add');
+Route::get('/applications/{candidate_id}', [CandidateController::class, 'applications'])->name('application.all');
+
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.all');
+
 Route::post('/company-registration', [UserController::class, 'companyRegsitration'])->name('company.register');
+Route::post('/candidate-registration', [UserController::class, 'candidateRegistration'])->name('candidate.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
 
