@@ -1,5 +1,9 @@
 <template>
     <div>
+        <!--поиск-->
+        <input class="input_icon" type="text" placeholder="Введите название компании или вакансии" />
+        <br />  
+        <br />      
         <table class="response_list">
             <tr>
                 <th class="oswald">Вакансия</th>
@@ -19,6 +23,12 @@
                 <td><a class="btn but_or" href="/student-feedback">Посмотреть заявки</a></td>
             </tr> 
         </table>
+                <!--pagination-->
+                <div class="pagin mob_none">
+                    <ul>
+                        <li class="active">6</li> из <li>24</li>
+                    </ul>
+                </div>
     </div>
 </template>
 

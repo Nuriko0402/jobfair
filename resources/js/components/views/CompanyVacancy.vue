@@ -5,6 +5,7 @@
         <hr />
         <!-- <category-vacancy /> -->
         <all-vacancy />
+        
     </MainContainer>        
 </template>
 

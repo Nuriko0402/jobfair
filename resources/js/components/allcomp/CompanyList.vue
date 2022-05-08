@@ -6,11 +6,14 @@
                <div class="row oswald mob_filter">
                     <div class="col-6">
                         <b class="mob_none">Специализации</b>
+                        <p>Должно быть раскрывающее меню с библиотеки VUE</p>
                         <span class="desk_none" @click="isShowing = !isShowing"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left none" viewBox="0 0 16 16">
                                 <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>Специализации</b>
-                        </span>     
+                        </span>  
+                        <b class="mob_none">Отрасль</b>   
+                        <p>Должно быть раскрывающее меню с библиотеки VUE</p>
                     </div>
                     <div class="col-6">
                         <span class="showing_search desk_none" @click="isShowingSearch = !isShowingSearch"><b>
@@ -30,11 +33,11 @@
 
 
 
-            <div class="main_filter monserat company_search row">
-                <div class="col-lg-3">
+            <div class="main_filter monserat company_search row mob_none">
+                <div class="col-lg-4">
                     <label for="">Тип занятости</label><br />
                     <select class="btn radius" v-model="selectType" @change="typeChange">
-                        <option value="0" selected="true">не имеет значения</option>
+                        <option value="0">не имеет значения</option>
                         <option 
                             v-for="employment_type in employment_types" 
                             :key="employment_type.id" 
@@ -44,44 +47,69 @@
                 </select>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <label for="">График работы</label><br />    
                     <select class="btn radius" v-model="selectSchedule" @change="scheduleChange">
-                        <option value="0" selected="true">не имеет значения</option>
+                        <option value="0">не имеет значения</option>
                         <option 
                             v-for="schedule in schedules" 
                             :key="schedule.id" 
-                            :value="schedule.schedule">
+                            :value="schedule.id">
                             {{ schedule.schedule }}
                         </option>
                     </select>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <label for="">Опыт работы</label><br />
                     <select class="btn radius" v-model="selectExperience" @change="experienceChange">
-                        <option value="0" selected="true">не имеет значения</option>
+                        <option value="0">не имеет значения</option>
                         <option 
                             v-for="experience in experiences" 
                             :key="experience.id"
                             :value="experience.id">
-                            {{  experience.experience }}
+                            {{ experience.experience }}
+                        </option>
+                    </select>
+                </div>
+<!--нету API-->
+                <div class="col-lg-4">
+                    <label for="">Срок работы</label><br />
+                    <select class="btn radius" v-model="selectTimework" @change="timeworkChange">
+                        <option value="0">не имеет значения</option>
+                        <option 
+                            v-for="timework in timeworks" 
+                            :key="timework.id"
+                            :value="timework.id">
+                            {{ timework.timework }}
                         </option>
                     </select>
                 </div>
 
-                <div class="col-lg-3"> 
-                    <br />
-                    <button @click="clear" class="but_or btn">Сбросить фильтры</button>
-                </div>    
+                <div class="col-lg-4">
+                    <label for="">Зарплата</label><br />
+                    <select class="btn radius" v-model="selectSalary">
+                        <option value="0">не имеет значения</option>
+                        <option 
+                            v-for="salary in salarys" 
+                            :key="salary.id"
+                            :value="salary.id">
+                            {{ salary.salary }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4"><br />
+                    <button @click="clear" class="btn but_or">Сбросить фильтры</button>
+                </div>     
+            <!--поиск-->
+            <input class="input_icon" type="text" placeholder="Введите должность" v-model.trim="inputSearch" />
+                   
             </div>
 
             <company-search-mob @closeMe="isShowingSearch=false" v-show="isShowingSearch" />  
             <!--конец фильтра, поиска--> 
-                <!--поиск-->
-                <input class="input_icon" type="text" placeholder="Введите должность" v-model.trim="inputSearch" />
                 <!--список rомпании-->
-                <br/><br/>
                 <div class="company_list" v-for="vacancy in filteredVacancies" :key="vacancy.id" @click="companyClick(vacancy.id)">
                     <div class="d-flex">
                         <h6 class="oswald"><b>{{vacancy.salary}}</b></h6>
@@ -176,10 +204,22 @@ export default {
                 { id: 'between3And6', experience: 'от 3 до 6 лет' },
                 { id: 'moreThan6', experience: 'более 6 лет}' }
             ],
+            timeworks: [
+                { id: 'between6', timework: 'до 6 месяцев' },
+                { id: 'between6And1', timework: 'от 6 месяцев до 1 года' },
+                { id: 'between1', timework: 'от 1 года и более' }
+            ],
+            salarys: [
+                { id: 'notSpecified', salary: 'не указана' },
+                { id: 'from50To150', salary: 'от 50 000 до 150 000' },
+                { id: 'from150AndMore', salary: 'от 150 000 и более' }
+            ],
             inputSearch: '',
             selectType: 0,
-            selectShedule: 0,
+            selectSchedule: 0,
             selectExperience: 0,
+            selectTimework: 0,
+            selectSalary: 0,
             isShowing: false,
             isShowingSearch: false,
         }
@@ -200,18 +240,12 @@ export default {
             window.location.href="/company-vacancy?id="+ID;
             // this.$router.push({name: 'CompanyVacancy', params: {id: ID}})
         },
-        clear: function() {
-            this.inputSearch = '';
-            this.selectType = 0;
-            this.selectSchedule = 0;
-            this.selectExperience = 0;
-        },
         typeChange() {
             axios
                 //фильтр по типу занятости
                 .get('http://127.0.0.1:8000/api/vacancies?type=' + this.selectType)
                 .then(response => {
-                    return this.vacancies = response.data.vacancies;
+                    return this.vacancies = response.data.vacancies || this.selectType == 0;
                 });
         },    
         scheduleChange() {
@@ -226,6 +260,14 @@ export default {
             axios
                 //фильтр по опыту работы
                 .get('http://127.0.0.1:8000/api/vacancies?experience=' + this.selectExperience)
+                .then(response => {
+                    return this.vacancies = response.data.vacancies;
+                });
+        },
+        timeworkChange() {
+            axios
+                //фильтр по опыту работы
+                .get('http://127.0.0.1:8000/api/vacancies?timework=' + this.selectTimework)
                 .then(response => {
                     return this.vacancies = response.data.vacancies;
                 });
@@ -257,7 +299,15 @@ export default {
                 case "between3And6": return 'от 3 до 6 лет';
                 case "moreThan6": return 'более 6 лет';
             }
-        }    
+        },
+        clear: function() {
+            this.inputSearch = '';
+            this.selectType = 0;
+            this.selectSchedule = 0; 
+            this.selectExperience = 0;
+            this.selectTimework = 0;
+            this.selectSalary = 0;   
+        },
     },
     computed: {
         filteredVacancies: function() {
@@ -280,5 +330,14 @@ export default {
     }
     .bold {
         font-weight: 900;
+    }
+    label {
+        font-size: .8rem;
+    }
+    .btn {
+        width: 90%;
+    }
+    .input_icon {
+        margin-top: 2%;
     }
 </style>

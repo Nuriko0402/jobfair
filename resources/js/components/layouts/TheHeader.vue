@@ -16,15 +16,15 @@
               <li class="nav-item">
                 <a href ="/" class="nav-link active" aria-current="page">ГЛАВНАЯ</a>
               </li>
-              <!-- <li class="nav-item">
-                <a href ="/top-companies" class="nav-link active" aria-current="page">ТОП 5 КОМПАНИЙ</a>
+              <li class="nav-item">
+                <a href ="/student-account" class="nav-link active" aria-current="page">ПРОФИЛЬ</a>
               </li>
               <li class="nav-item">
-                <a href ="/list-companies" class="nav-link active" aria-current="page">СПИСОК КОМПАНИЙ</a>
+                <a href ="/vacancy-response" class="nav-link active" aria-current="page">МОИ ОТКЛИКИ</a>
               </li>
               <li class="nav-item">
-                <a href ="/vacancy-response" class="nav-link active" aria-current="page">ОТКЛИКИ</a>
-              </li> -->
+                <a href ="/student-account" class="nav-link active" aria-current="page">МОЕ РЕЗЮМЕ</a>
+              </li>
               <li class="nav-item">
                 <a href ="/company-view" class="nav-link active" aria-current="page">КОМПАНИЯ</a>
               </li>
