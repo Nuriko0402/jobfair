@@ -32,3 +32,8 @@ Route::get('/login', [PageController::class, 'enterPage'])->name('login');
 
 Route::get('/company-vacancy/{id}',[PageController::class, 'companyvacancyPage']);
 Route::get('/student-account/{id}',[PageController::class, 'student-accountPage']);
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

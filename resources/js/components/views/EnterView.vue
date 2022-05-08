@@ -31,7 +31,7 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                             <div class="step" v-show="step === 1">
-                                                
+
                                             <!-- <input type="hidden" name="_token" :value="csrf"> -->
                                             <input v-model="company.title" type="text" placeholder="Название компании">
                                             <input v-model="company.address" type="text" placeholder="Адрес">
@@ -48,11 +48,11 @@
                                             <button @click="backStep" class="btn w-100">Назад</button>
                                             <button @click.prevent="signup" type="submit" class="btn but_or w-100">Зарегистрироваться</button>
                                         </div>
-                                    </div>    
+                                    </div>
                                 </div>
                                 </div>
                             </div>
-                        </div>        
+                        </div>
                         </div>
                         <div class="col-6">
                             <button class="btn tab-link" data-bs-toggle="modal" data-bs-target="#soiskatel">
@@ -71,20 +71,21 @@
                             <div class="modal-body">
                                 <form>
                                     <div class="mb-3">
-                                        <input type="text" placeholder="Фамилия">
-                                        <input type="text" placeholder="Имя">
-                                        <input type="text" placeholder="ИИН">
-                                        <input type="text" placeholder="GPA">
-                                        <input type="text" placeholder="Контакты">
-                                        <input type="text" placeholder="Email">
-                                        <input type="text" placeholder="Придумайте пароль">
-                                        <button type="submit" class="btn but_or w-100">Зарегистрироваться</button>
+                                        <input v-model="candidate.lastname" type="text" placeholder="Фамилия">
+                                        <input v-model="candidate.firstname" type="text" placeholder="Имя">
+                                        <input v-model="candidate.iin" type="text" placeholder="ИИН">
+                                        <input v-model="candidate.gpa" type="text" placeholder="GPA">
+                                        <input v-model="candidate.phone" type="text" placeholder="Телефон">
+                                        <input v-model="candidate.email" type="text" placeholder="Email">
+                                        <input v-model="candidate.password" type="password" placeholder="Придумайте пароль">
+                                        <input v-model="candidate.password_confirmation" type="password" placeholder="Повторите пароль">
+                                        <button @click.prevent="signupCandidate" type="submit" class="btn but_or w-100">Зарегистрироваться</button>
                                     </div>
                                 </form>
                             </div>
                             </div>
                         </div>
-                        </div>        
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -99,9 +100,9 @@
                     </div>
                 </div>
             </div>
-        </div> 
-    </div> 
-    </div> 
+        </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -115,13 +116,23 @@ export default {
             company: {
                 title: 'Maksat',
                 address: 'Almaty',
-                bin: '123456', 
+                bin: '123456',
                 iik: '123456',
                 kbe: '123456',
                 email: 'janatmaksat@gmail.com',
                 phone: '87475629170',
                 password: '12345',
                 password_confirmation: '123456',
+            },
+            candidate: {
+                firstname: 'Мақсат',
+                lastname: 'Жанат',
+                iin: '960209301063',
+                gpa: '3.6',
+                phone: '87475629170',
+                email: 'janatmaksat@gmail.com',
+                password: '12345',
+                password_confirmation: '12345',
             },
             user: {
                 email: 'janatmaksat@gmail.com',
@@ -146,8 +157,17 @@ export default {
                 console.error("There was an error!", error);
             });
         },
+        signupCandidate() {
+            axios.post("/api/candidate-registration", this.candidate, {headers: {'X-CSRF-TOKEN': this.csrf}})
+                .then(response => {
+                    console.log(response)
+                }).catch(error => {
+                this.errorMessage = error.message;
+                console.error("There was an error!", error);
+            });
+        },
         login() {
-            
+
             // axios.get('/sanctum/csrf-cookie').then(response => {
                 axios.post('/api/login', this.user)
                     .then(response => {

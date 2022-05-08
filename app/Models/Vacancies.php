@@ -8,7 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Vacancies extends Model
 {
     use HasFactory;
-    
+
+    protected $fillable = [
+        'title',
+        'experience',
+        'schedule',
+        'employment_type',
+        'description',
+        'company_id',
+        'salary',
+        'status',
+    ];
+
     // Тип занятости
     const FULL = 'full'; // Полная занятость
     const PART = 'part'; // Частичная занятость
@@ -24,7 +35,7 @@ class Vacancies extends Model
     const SHIFT = 'shift'; // Сменный график
     const FLYINFLYOUT = 'flyInFlyOut'; // Вахтовый метод
     const REMOTE = 'remote'; // Удаленная работа
-    const FLEXIBLE = 'flexible'; // Удаленная работа
+    const FLEXIBLE = 'flexible'; // Гибкий график
     public static $schedules = array(
         'full', 'part' ,'probation', 'project', 'volunteer'
     );
