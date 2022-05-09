@@ -8,7 +8,8 @@
             <div class="col-lg-9">
                 <h4 class="oswald">{{company.title}}</h4>
                 <p>{{company.description}}</p>
-                <button class="but_or btn" @click="modalShow = !modalShow">Редактировать</button>   
+                <button class="but_or btn" @click="modalShow = !modalShow">Редактировать</button>
+                <!--При нажатии на Редактировать выхоят input-->   
             </div>
             <h4>Отрасль</h4>
             <button class="btn">{{companies.category}}</button>

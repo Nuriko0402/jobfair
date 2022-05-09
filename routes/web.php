@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->get('/name', function (Request $request) {
 Route::get('/enter-view', [PageController::class, 'enterPage']);
 Route::get('/company-view', [PageController::class, 'companyviewPage']);
 Route::get('/vacancy-response', [PageController::class, 'vacancyresponsePage']);
+Route::get('/company-response', [PageController::class, 'companyresponsePage']);
 Route::get('/student-feedback', [PageController::class, 'studentfeedbackPage']);
 Route::get('/company-feedback', [PageController::class, 'companyfeedbackPage']);
 Route::get('/student-account', [PageController::class, 'studentaccountPage']);
@@ -35,5 +36,5 @@ Route::get('/student-account/{id}',[PageController::class, 'student-accountPage'
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+    //Voyager::routes();
 });

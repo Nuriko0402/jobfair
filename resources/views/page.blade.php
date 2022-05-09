@@ -8,6 +8,8 @@
     <company-view>
 @elseif($page === 'vacancyresponse')
     <vacancy-response>
+@elseif($page === 'companyresponse')
+    <company-response>
 @elseif($page === 'studentaccount')
     <student-account>
 @elseif($page === 'companyvacancy')

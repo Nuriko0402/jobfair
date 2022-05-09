@@ -24,6 +24,7 @@ Vue.component('student-information', require('./components/allcomp/StudentInform
 Vue.component('student-inform-edit', require('./components/allcomp/StudentInformEdit.vue').default);
 Vue.component('vacancy-edit', require('./components/allcomp/VacancyEdit.vue').default);
 Vue.component('vacancy-response-comp', require('./components/allcomp/VacancyResponseComp.vue').default);
+Vue.component('company-response-vac', require('./components/allcomp/CompanyResponseVac.vue').default);
 Vue.component('student-feedback', require('./components/allcomp/StudentFeedback.vue').default);
 Vue.component('company-feedback', require('./components/allcomp/CompanyFeedback.vue').default);
 Vue.component('vacancy-view', require('./components/allcomp/VacancyView.vue').default);
@@ -39,6 +40,7 @@ Vue.component('main-page', require('./components/views/MainPage.vue').default);
 Vue.component('student-account', require('./components/views/StudentAccount.vue').default);
 Vue.component('top-companies', require('./components/views/TopCompanies.vue').default);
 Vue.component('vacancy-response', require('./components/views/VacancyResponse.vue').default);
+Vue.component('company-response', require('./components/views/CompanyResponse.vue').default);
 Vue.component('vacancy-view', require('./components/views/VacancyView.vue').default);
 
 

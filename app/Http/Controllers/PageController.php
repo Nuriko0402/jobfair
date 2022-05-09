@@ -19,6 +19,10 @@ class PageController extends Controller
         $page = 'vacancyresponse';
         return view('page', compact('page'));
     }
+    public function companyresponsePage() {
+        $page = 'companyresponse';
+        return view('page', compact('page'));
+    }
     public function studentaccountPage() {
         $page = 'studentaccount';
         return view('page', compact('page'));

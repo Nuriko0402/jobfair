@@ -70,12 +70,15 @@
                 {{student.lang}}
             </p>
             <button class="but_or btn" @click="isShowing = !isShowing">Редактировать</button>
+            <!--При нажатии на Редактировать появляются input-->
+
+            
             <student-inform-edit v-show="isShowing"/>
         </div>
         <div>
         <br/><br/>
         <!--Список вакансии куда откликался студент-->
-        <h5 class="oswald">Мои отклики</h5>
+        <h5 class="oswald">Мои отклики <a class="right" href="/company-response">Посмотреть все</a></h5>
         <div class="row">
             <div class="col-lg-3 col-md-6 comp_list_box">
                 <h4 class="oswald">Архитектор</h4>
@@ -136,5 +139,9 @@ export default {
         padding: 1%;
         text-align: center;
         margin-right: .5%;
+    }
+    .right {
+        float: right;
+        text-decoration: none;
     }
 </style> 
