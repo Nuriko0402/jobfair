@@ -6,12 +6,19 @@
                <div class="row oswald mob_filter">
                     <div class="col-6">
                         <b class="mob_none">Специализации</b>
-                        <p>Должно быть раскрывающее меню с библиотеки VUE</p>
+                        <p class="mob_none">
+                            <ul v-for="spet in spets" :key="spet.id">
+                                <li class="monserat">{{spet.name}}</li>
+                            </ul>
+                            <a href="">Показать еще</a>
+                        </p>
+
                         <span class="desk_none" @click="isShowing = !isShowing"><b>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-filter-left none" viewBox="0 0 16 16">
                                 <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>Специализации</b>
                         </span>  
+
                         <b class="mob_none">Отрасль</b>   
                         <p>Должно быть раскрывающее меню с библиотеки VUE</p>
                     </div>
@@ -99,9 +106,9 @@
                     </select>
                 </div>
 
-                <div class="col-lg-4"><br />
+                <!-- <div class="col-lg-4"><br />
                     <button @click="clear" class="btn but_or">Сбросить фильтры</button>
-                </div>     
+                </div>      -->
             <!--поиск-->
             <input class="input_icon" type="text" placeholder="Введите должность" v-model.trim="inputSearch" />
                    
@@ -222,6 +229,16 @@ export default {
             selectSalary: 0,
             isShowing: false,
             isShowingSearch: false,
+            spets: [
+                {id: 1, name: 'Дизайн'},
+                {id: 1, name: 'Строительство'},
+                {id: 1, name: 'Архитектура'},
+                {id: 1, name: 'Менеджмент'},
+                {id: 1, name: 'Бизнес'},
+                {id: 1, name: 'Учет и Аудит'},
+                {id: 1, name: 'Маркетинг'},
+                {id: 1, name: 'Гостиничный бизнес'}
+            ]
         }
     },
     methods: {
@@ -339,5 +356,11 @@ export default {
     }
     .input_icon {
         margin-top: 2%;
+    }
+    ul {
+        margin-top: 15px;
+    }
+    ul li {
+        list-style: none;
     }
 </style>
